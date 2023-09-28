@@ -5,3 +5,18 @@ Marcos Barrios, alu0101056944
 ## Description
 
 <code>Sass</code> learning repository to prepare for an evaluation practice session of the *Sistemas y Tecnología Web: Cliente* subject.
+
+## Project structure
+
+```bash
+.
+├── README.md
+├── web-server
+└── www
+    ├── assets
+    └── css             // Exercises description and solution files
+        ├── README.md
+        ├── exercise1.css
+        └── exercise1_solution.scss
+
+```
