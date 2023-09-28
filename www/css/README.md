@@ -1,0 +1,1 @@
+This folder contains the solutions for the exercises to be found at [https://github.com/isanchezberriel/STYWC2324/blob/main/Sass/Sass.md](https://github.com/isanchezberriel/STYWC2324/blob/main/Sass/Sass.md).
