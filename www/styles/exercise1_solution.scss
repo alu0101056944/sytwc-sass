@@ -1,0 +1,41 @@
+
+/* Assumming that the first header not being a class selector is NOT a typo. */
+
+header {
+  background-color: #531946;
+}
+
+.header {
+  a {
+    color: #fff;
+    &:hover {
+      color: #095169;
+    }
+  }
+}
+
+.footer {
+  background-color: #30162B;
+  color: #fff;
+  a {
+    color: #095169;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.feature {
+  a {
+    background-color: #30162B;
+    color: #fff;
+    &:hover {
+      color: #531946;
+    }
+  }
+}
+
+.content {
+  background-color: #fff;
+  color: #222;
+}
