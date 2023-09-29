@@ -1,25 +1,28 @@
 /* Assumming that the first header not being a class selector is NOT a typo. */
-header {
-  background-color: #531946; }
-
 .header a {
   color: #fff; }
   .header a:hover {
     color: #095169; }
 
-.footer {
-  background-color: #30162B;
-  color: #fff; }
-  .footer a {
-    color: #095169; }
-    .footer a:hover {
-      color: #fff; }
+.footer a {
+  color: #095169; }
+  .footer a:hover {
+    color: #fff; }
 
 .feature a {
-  background-color: #30162B;
   color: #fff; }
   .feature a:hover {
     color: #531946; }
+
+header {
+  background-color: #531946; }
+
+.footer {
+  background-color: #30162B;
+  color: #fff; }
+
+.feature a {
+  background-color: #30162B; }
 
 .content {
   background-color: #fff;

@@ -5,37 +5,29 @@ $elements: header, footer, feature;
 $a_colors: #fff, #095169, #fff;
 $a_hover_colors: #095169, #fff, #531946;
 
-header {
-  background-color: #531946;
-}
-
-.header {
-  a {
-    color: #fff;
-    &:hover {
-      color: #095169;
+@for $i from 1 through length($elements) {
+  .#{nth($elements, $i)} {
+    a {
+      color: nth($a_colors, $i);
+      &:hover {
+        color: nth($a_hover_colors, $i);
+      }
     }
   }
+}
+
+header {
+  background-color: #531946;
 }
 
 .footer {
   background-color: #30162B;
   color: #fff;
-  a {
-    color: #095169;
-    &:hover {
-      color: #fff;
-    }
-  }
 }
 
 .feature {
   a {
     background-color: #30162B;
-    color: #fff;
-    &:hover {
-      color: #531946;
-    }
   }
 }
 
