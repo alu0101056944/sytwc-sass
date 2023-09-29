@@ -5,20 +5,25 @@ $elements: header, footer, feature;
 $a_colors: #fff, #095169, #fff;
 $a_hover_colors: #095169, #fff, #531946;
 
-@for $i from 1 through length($elements) {
-  .#{nth($elements, $i)} {
-    a {
-      color: nth($a_colors, $i);
-      &:hover {
-        color: nth($a_hover_colors, $i);
-      }
+@mixin baseAndHoverLinkColors($baseColor, $hoverColor) {
+  a {
+    color: $baseColor;
+    &:hover {
+      color: $hoverColor;
     }
+  }
+}
+
+@for $i from 1 to length($elements) + 1 {
+  .#{nth($elements, $i)} {
+    @include baseAndHoverLinkColors(nth($a_colors, $i), nth($a_hover_colors, $i));
   }
 }
 
 header {
   background-color: #531946;
 }
+
 
 .footer {
   background-color: #30162B;
