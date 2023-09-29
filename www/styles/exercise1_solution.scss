@@ -1,6 +1,15 @@
 
 /* Assumming that the first header not being a class selector is NOT a typo. */
 
+$header_a_color: #fff;
+$header_a_hover_color: #095169;
+
+$footer_a_color: #095169;
+$footer_a_hover_color: #fff;
+
+$feature_a_color: #fff;
+$feature_a_hover_color: #531946;
+
 header {
   background-color: #531946;
 }

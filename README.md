@@ -14,7 +14,7 @@ Marcos Barrios, alu0101056944
 ├── web-server
 └── www
     ├── assets
-    └── css             // Exercises description and solution files
+    └── styles             // Exercises description and solution files
         ├── README.md
         ├── exercise1.css
         └── exercise1_solution.scss
