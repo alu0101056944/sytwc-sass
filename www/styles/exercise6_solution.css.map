@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAMA,OAAQ;EALN,qBAAqB,EAMA,GAAG;EALrB,kBAAkB,EAKA,GAAG;EAJhB,aAAa,EAIA,GAAG;;AAG1B,OAAQ;EATN,qBAAqB,EAUA,IAAI;EATtB,kBAAkB,EASA,IAAI;EARjB,aAAa,EAQA,IAAI",
+"sources": ["exercise6_solution.scss"],
+"names": [],
+"file": "exercise6_solution.css"
+}
