@@ -1,0 +1,14 @@
+
+.foo {
+  color: #fff;
+  .xyzz {
+    color: #AAA;
+    .xyzz2 {
+      color: #993;
+    }
+  }
+}
+
+.bar {
+  @extend .foo
+}

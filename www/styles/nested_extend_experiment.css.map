@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,UAAK;EACH,KAAK,EAAE,IAAI;EACX,sBAAM;IACJ,KAAK,EAAE,IAAI;IACX,oCAAO;MACL,KAAK,EAAE,IAAI",
+"sources": ["nested_extend_experiment.scss"],
+"names": [],
+"file": "nested_extend_experiment.css"
+}

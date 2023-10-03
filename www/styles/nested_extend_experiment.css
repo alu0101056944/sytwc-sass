@@ -1,0 +1,8 @@
+.foo, .bar {
+  color: #fff; }
+  .foo .xyzz, .bar .xyzz {
+    color: #AAA; }
+    .foo .xyzz .xyzz2, .bar .xyzz .xyzz2 {
+      color: #993; }
+
+/*# sourceMappingURL=nested_extend_experiment.css.map */
