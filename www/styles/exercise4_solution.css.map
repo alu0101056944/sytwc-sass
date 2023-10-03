@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,CAAE;EACA,KAAK,EAAE,OAAO;EACd,OAAQ;IACN,KAAK,EAAE,OAAO;IACd,YAAK;MACH,OAAO,EAAE,KAAK;;AAKpB,KAAM;EACJ,UAAU,EAAE,OAAO",
+"sources": ["exercise4_solution.scss"],
+"names": [],
+"file": "exercise4_solution.css"
+}

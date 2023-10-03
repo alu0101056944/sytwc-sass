@@ -1,0 +1,13 @@
+a {
+  color: #beedee;
+  &:hover {
+    color: #cbbebb;
+    .btn {
+      display: block;
+    }
+  }
+}
+
+a.btn {
+  background: #deede6;
+}

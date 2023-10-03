@@ -1,0 +1,11 @@
+a {
+  color: #beedee; }
+  a:hover {
+    color: #cbbebb; }
+    a:hover .btn {
+      display: block; }
+
+a.btn {
+  background: #deede6; }
+
+/*# sourceMappingURL=exercise4_solution.css.map */
