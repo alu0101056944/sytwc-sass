@@ -1,0 +1,33 @@
+.header {
+  background-color: #531946;
+  border-radius: 5px;
+  padding: 5px 20px;
+  a {
+    color: #fff;
+    &:hover {
+      color: #095169;
+    }
+  }
+}
+
+.footer {
+  background-color: #30162B;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 20px;
+  a {
+    color: #095169;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.feature {
+   a {
+    @extend .footer
+    &:hover {
+      color: #531946;
+    }
+  }
+}

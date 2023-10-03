@@ -1,0 +1,12 @@
+.foo {
+  background-color: #fff;
+}
+
+.xyzz {
+  .xyzz2 {
+    @extend .foo;
+    background-color: #AAA;
+  }
+}
+
+
