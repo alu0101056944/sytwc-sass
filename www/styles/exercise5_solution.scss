@@ -1,0 +1,16 @@
+header {
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.footer {
+  @extend header;
+}
+
+.feature a {
+  @extend header;
+}
+
+.content {
+  @extend header;
+}

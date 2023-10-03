@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,qCAAO;EACL,aAAa,EAAE,GAAG;EAClB,OAAO,EAAE,QAAQ",
+"sources": ["exercise5_solution.scss"],
+"names": [],
+"file": "exercise5_solution.css"
+}

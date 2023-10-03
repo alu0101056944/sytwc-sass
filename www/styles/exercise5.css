@@ -1,0 +1,20 @@
+header {
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.footer {
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.feature a {
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.content {
+  border-radius: 5px;
+  padding: 5px 20px;
+
+}
