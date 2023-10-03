@@ -1,0 +1,15 @@
+a {
+  color: #beedee;
+}
+
+a:hover {
+  color: #cbbebb;
+}
+
+a.btn {
+  background: #deede6;
+}
+
+a .btn {
+  display: block;
+}
