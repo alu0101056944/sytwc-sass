@@ -1,0 +1,11 @@
+.navigation {
+  float: right; }
+  .navigation li {
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 1.5em; }
+  .navigation a {
+    display: block;
+    text-decoration: none; }
+
+/*# sourceMappingURL=exercise3_solution.css.map */
