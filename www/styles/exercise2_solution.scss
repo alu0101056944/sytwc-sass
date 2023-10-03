@@ -7,27 +7,34 @@
   }  
 }
 
-.header {
-  background-color: #531946;
+@mixin setupBackground($backgroundColor) {
+  background-color: $backgroundColor;
   border-radius: 5px;
   padding: 5px 20px;
+}
+
+.header {
+  @include setupBackground(#531946);
   @include linkColors(#fff, #095169);
 }
 
 .footer {
-  background-color: #30162B;
+  @include setupBackground(#30162B);
   color: #fff;
-  border-radius: 5px;
-  padding: 5px 20px;
   @include linkColors(#095169, #fff);
 }
 
 .feature {
-   a {
-    @extend .footer;
-    color: #095169;
+  a {
+    @include setupBackground(#30162B);
+    color: #fff;
     &:hover {
       color: #531946;
     }
   }
+}
+
+.content {
+  @include setupBackground(#fff);
+  color: #222;
 }
