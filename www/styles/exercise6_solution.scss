@@ -1,0 +1,13 @@
+@mixin borderSetup($borderSize){
+  -webkit-border-radius: $borderSize;
+     -moz-border-radius: $borderSize;
+          border-radius: $borderSize;
+}
+
+.header {
+  @include borderSetup(5px);
+}
+
+.footer {
+  @include borderSetup(10px);
+}
