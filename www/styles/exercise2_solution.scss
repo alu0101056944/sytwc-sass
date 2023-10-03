@@ -1,13 +1,17 @@
+@mixin linkColors($colorBase, $colorHover) {
+  a {
+    color: $colorBase;
+    &:hover {
+      color: $colorHover;
+    }
+  }  
+}
+
 .header {
   background-color: #531946;
   border-radius: 5px;
   padding: 5px 20px;
-  a {
-    color: #fff;
-    &:hover {
-      color: #095169;
-    }
-  }
+  @include linkColors(#fff, #095169);
 }
 
 .footer {
@@ -15,17 +19,13 @@
   color: #fff;
   border-radius: 5px;
   padding: 5px 20px;
-  a {
-    color: #095169;
-    &:hover {
-      color: #fff;
-    }
-  }
+  @include linkColors(#095169, #fff);
 }
 
 .feature {
    a {
-    @extend .footer
+    @extend .footer;
+    color: #095169;
     &:hover {
       color: #531946;
     }

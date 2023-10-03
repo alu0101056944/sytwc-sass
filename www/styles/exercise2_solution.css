@@ -1,0 +1,25 @@
+.header {
+  background-color: #531946;
+  border-radius: 5px;
+  padding: 5px 20px; }
+  .header a {
+    color: #fff; }
+    .header a:hover {
+      color: #095169; }
+
+.footer, .feature a {
+  background-color: #30162B;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 20px; }
+  .footer a, .feature a a {
+    color: #095169; }
+    .footer a:hover, .feature a a:hover {
+      color: #fff; }
+
+.feature a {
+  color: #095169; }
+  .feature a:hover {
+    color: #531946; }
+
+/*# sourceMappingURL=exercise2_solution.css.map */
