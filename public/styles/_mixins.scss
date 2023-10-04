@@ -13,9 +13,14 @@
 
 @mixin addHStyle($number) {
   @if $number > 0 && $number <= 7 {
-    h#{number} {
+    h#{$number} {
       text-align: center;
-      margin: 3px 7px 3px 7px;
+      @if $number <= 2 {
+        margin: 15px 0px 15px 0px;
+      } @else {
+        margin: 3px 0px 3px 0px;
+      }
+      padding: 3px 0px 3px 0;
     }
   }
 }

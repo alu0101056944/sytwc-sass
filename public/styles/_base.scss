@@ -38,9 +38,7 @@ body {
       height: 60px;
       align-items: flex-start;
       margin-top: 15px;
-      @for $i from 1 to 6 {
-        @include addHStyle($i);
-      }
+      @include addHStyle(2);
     }
     nav {
       @include addHeaderStyleHere();
@@ -60,11 +58,7 @@ body {
       .feature {
         @extend %common-content;
         background-color: MediumOrchid;
-        span {
-          @include addFlexLayout();
-          text-align: center;
-          padding: 5px 0 5px 0;
-        }
+        @include addHStyle(2);
         @include addExamplesStyle();
       }
     }
@@ -124,11 +118,7 @@ body {
     .feature {
       @extend %common-footer;
       background-color: MediumOrchid;
-      span {
-        @include addFlexLayout();
-        text-align: center;
-        padding: 5px 0 5px 0;
-      }
+      @include addHStyle(5);
       @include addExamplesStyle();
     }
     .garantydiv {
