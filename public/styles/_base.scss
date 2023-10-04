@@ -78,8 +78,8 @@ body {
           margin: 10px 3px 5px 3px;
           .example {
             background-color: IndianRed ;
-            width: 100px;
-            height: 150px;
+            width: 90px;
+            height: 130px;
             margin: 8px 8px 8px 8px;
             padding: 5px 5px 5px 5px;
             border: 1px solid dimgray;
@@ -90,26 +90,26 @@ body {
     }
     .sidebar {
       @include setupFlex();
-      width: 270px;
-      margin: 3px, 3px, 3px, 0px;
+      width: 255px;
+      margin: 3px, 7px, 3px, 0px;
       padding: 5px 10px 5px 10px;
-      background-color: green;
       flex-direction: column;
       justify-content: flex-start;
       align-content: center;
       %common-sidebar {
         width: 100%;
-        margin: 3px 3px 3px 3px;
+        margin: 11px 3px 3px 3px;
         padding: 3px 3px 3px 3px;
       }
       .formdiv {
         @extend %common-sidebar;
-        background-color: white;
+        background-color: hotpink;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
         span {
           text-align: center;
+          margin: 3px 0 3px 0;
         }
         form {
           display: flex;
@@ -117,7 +117,7 @@ body {
           justify-content: space-between;
           align-content: center;
           .row {
-            margin: 5px 0 5px 0;
+            margin: 5px 5px 5px 5px;
             padding: 3px 0 3px 0;
           }
           input[type="button"] {
@@ -132,8 +132,6 @@ body {
         align-items: center;
         background-color: lightblue;
         height: 66px;
-        span {
-        }
       }
     }
   }

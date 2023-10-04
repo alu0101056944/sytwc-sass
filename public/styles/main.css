@@ -75,8 +75,8 @@ body {
           margin: 10px 3px 5px 3px; }
           .base main .content .feature .examples .example {
             background-color: IndianRed;
-            width: 100px;
-            height: 150px;
+            width: 90px;
+            height: 130px;
             margin: 8px 8px 8px 8px;
             padding: 5px 5px 5px 5px;
             border: 1px solid dimgray;
@@ -85,31 +85,31 @@ body {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      width: 270px;
-      margin: 3px, 3px, 3px, 0px;
+      width: 255px;
+      margin: 3px, 7px, 3px, 0px;
       padding: 5px 10px 5px 10px;
-      background-color: green;
       flex-direction: column;
       justify-content: flex-start;
       align-content: center; }
       .base main .sidebar .formdiv, .base main .sidebar .contactdiv {
         width: 100%;
-        margin: 3px 3px 3px 3px;
+        margin: 11px 3px 3px 3px;
         padding: 3px 3px 3px 3px; }
       .base main .sidebar .formdiv {
-        background-color: white;
+        background-color: hotpink;
         display: flex;
         justify-content: flex-start;
         flex-direction: column; }
         .base main .sidebar .formdiv span {
-          text-align: center; }
+          text-align: center;
+          margin: 3px 0 3px 0; }
         .base main .sidebar .formdiv form {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           align-content: center; }
           .base main .sidebar .formdiv form .row {
-            margin: 5px 0 5px 0;
+            margin: 5px 5px 5px 5px;
             padding: 3px 0 3px 0; }
           .base main .sidebar .formdiv form input[type="button"] {
             width: 25%;
