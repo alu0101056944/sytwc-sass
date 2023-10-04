@@ -1,0 +1,16 @@
+.header a {
+  color: #fff; }
+  .header a:hover {
+    color: #095169; }
+
+.footer a {
+  color: #095169; }
+  .footer a:hover {
+    color: #fff; }
+
+.feature a {
+  color: #fff; }
+  .feature a:hover {
+    color: #531946; }
+
+/*# sourceMappingURL=change_link_colors.css.map */
