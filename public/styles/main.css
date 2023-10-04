@@ -49,7 +49,10 @@ body {
       width: 780px;
       height: 35px; }
   .base main {
-    width: 800px; }
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
     .base main .content {
       width: 495px;
       margin: 3px, 3px, 3px, 3px; }
@@ -68,8 +71,8 @@ body {
           flex-wrap: wrap;
           justify-content: space-evenly;
           width: 460px;
-          padding: 10px 3px 10px 3px;
-          margin: 10px 3px 10px 3px; }
+          padding: 10px 3px 2px 3px;
+          margin: 10px 3px 5px 3px; }
           .base main .content .feature .examples .example {
             background-color: IndianRed;
             width: 100px;
@@ -79,8 +82,23 @@ body {
             border: 1px solid dimgray;
             border-radius: 20px; }
     .base main .sidebar {
-      width: 395px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 290px;
       margin: 3px, 3px, 3px, 0px;
       background-color: green; }
+      .base main .sidebar .formdiv {
+        width: 280px;
+        margin: 3px 3px 3px 3px;
+        padding: 3px 3px 3px 3px; }
+      .base main .sidebar .formdiv form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: center; }
+        .base main .sidebar .formdiv form .row {
+          margin: 5px 0 5px 0;
+          padding: 3px 0 3px 0; }
 
 /*# sourceMappingURL=main.css.map */

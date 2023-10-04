@@ -13,14 +13,12 @@ body {
   width: 800px;
   @include setupFlex();
   border: 1px solid DimGray ;
-
   header {
     width: 800px;
     padding: 5px 30px 5px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
     %common-header {
       background-color: lightblue;
       display: flex;
@@ -29,7 +27,6 @@ body {
       margin: 3px 5px 3px 5px;
       padding: 3px 5px 3px 5px;
     }
-
     .icondiv {
       @extend %common-header;
       background-color: mediumorchid;
@@ -41,7 +38,6 @@ body {
         margin-left: 8px;
       }
     }
-
     .namediv {
       @extend %common-header;
       width: 430px;
@@ -52,7 +48,6 @@ body {
         }
       }
     }
-
     nav {
       @extend %common-header;
       width: 780px;
@@ -62,16 +57,14 @@ body {
 
   main {
     width: 800px;
-
+    @include setupFlex();
     .content {
       width: 495px;
       margin: 3px, 3px, 3px, 3px;
-
       %common-content {
         width: 495px;
         margin: 3px, 0, 3px, 0;
       }
-
       .feature {
         @extend %common-content;
         @include setupFlex();
@@ -81,8 +74,8 @@ body {
         .examples {
           @include setupFlex();
           width: 460px;
-          padding: 10px 3px 10px 3px;
-          margin: 10px 3px 10px 3px;
+          padding: 10px 3px 2px 3px;
+          margin: 10px 3px 5px 3px;
           .example {
             background-color: IndianRed ;
             width: 100px;
@@ -95,11 +88,29 @@ body {
         }
       }
     }
-
     .sidebar {
-      width: 395px;
+      @include setupFlex();
+      width: 290px;
       margin: 3px, 3px, 3px, 0px;
       background-color: green;
+      %common-sidebar {
+        width: 280px;
+        margin: 3px 3px 3px 3px;
+        padding: 3px 3px 3px 3px;
+      }
+      .formdiv {
+        @extend %common-sidebar;
+        form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-content: center;
+          .row {
+            margin: 5px 0 5px 0;
+            padding: 3px 0 3px 0;
+          }
+        }
+      }
     }
   }
 }
