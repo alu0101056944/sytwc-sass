@@ -118,6 +118,18 @@ body {
           .base main .sidebar .formdiv form input[type="button"] {
             width: 25%;
             align-self: center; }
+          .base main .sidebar .formdiv form input[type="button"]:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            border: 1px solid darkgray; }
+          .base main .sidebar .formdiv form input[type="text"]:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            border: 1px solid darkgray; }
+          .base main .sidebar .formdiv form input[type="email"]:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            border: 1px solid darkgray; }
   .base footer {
     display: flex;
     flex-wrap: wrap;
