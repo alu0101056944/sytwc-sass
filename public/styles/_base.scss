@@ -29,7 +29,7 @@ body {
       margin: 3px 5px 3px 5px;
       padding: 3px 5px 3px 5px;
     }
-  
+
     .icondiv {
       @extend %common-header;
       background-color: purple;
@@ -37,13 +37,25 @@ body {
       justify-content: flex-start;
       margin-right: 30px;
     }
-    
+
     .namediv {
       @extend %common-header;
       width: 430px;
-      align-items: flex-start;
+      align-items: flex-end;
+      height: 100px;
+      @for $i from 1 to 6 {
+        h#{$i} {
+          margin: 0;
+          background-color: rgb($i * 30, $i * 30, $i * 30);
+        }
+      }
+      div {
+        width: 60px;
+        height: 40px;
+        background-color: coral;
+      }
     }
-  
+
     nav {
       @extend %common-header;
       width: 780px;

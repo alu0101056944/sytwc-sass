@@ -29,7 +29,27 @@ body {
       margin-right: 30px; }
     .base header .namediv {
       width: 430px;
-      align-items: flex-start; }
+      align-items: flex-end;
+      height: 100px; }
+      .base header .namediv h1 {
+        margin: 0;
+        background-color: #1e1e1e; }
+      .base header .namediv h2 {
+        margin: 0;
+        background-color: #3c3c3c; }
+      .base header .namediv h3 {
+        margin: 0;
+        background-color: #5a5a5a; }
+      .base header .namediv h4 {
+        margin: 0;
+        background-color: #787878; }
+      .base header .namediv h5 {
+        margin: 0;
+        background-color: #969696; }
+      .base header .namediv div {
+        width: 60px;
+        height: 40px;
+        background-color: coral; }
     .base header nav {
       width: 780px;
       height: 35px; }
