@@ -10,39 +10,44 @@ body {
   @include center;
   background-color: lightgray;
   width: 800px;
-  padding: 5px 30px 5px 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
 
-header {
-  %common-header {
-    background-color: lightblue;
+  header {
+    width: 800px;
+    padding: 5px 30px 5px 30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 3px 5px 3px 5px;
-    padding: 3px 5px 3px 5px;
-  }
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
-  .icon-header {
-    @extend %common-header;
-    background-color: purple;
-    width: 300px;
-    justify-content: flex-start;
-    margin-right: 30px;
-  }
+    %common-header {
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 3px 5px 3px 5px;
+      padding: 3px 5px 3px 5px;
+    }
   
-  .name-header {
-    @extend %common-header;
-    width: 430px;
-    align-items: flex-start;
-  }
-
-  nav {
-    @extend %common-header;
-    width: 780px;
-    height: 35px;
+    .icondiv {
+      @extend %common-header;
+      background-color: purple;
+      width: 300px;
+      justify-content: flex-start;
+      margin-right: 30px;
+    }
+    
+    .namediv {
+      @extend %common-header;
+      width: 430px;
+      align-items: flex-start;
+    }
+  
+    nav {
+      @extend %common-header;
+      width: 780px;
+      height: 35px;
+    }
   }
 }

@@ -6,28 +6,32 @@ body {
   width: 50%;
   background-color: lightgray;
   width: 800px;
-  padding: 5px 30px 5px 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly; }
-
-header .icon-header, header .name-header, header nav {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px; }
-header .icon-header {
-  background-color: purple;
-  width: 300px;
-  justify-content: flex-start;
-  margin-right: 30px; }
-header .name-header {
-  width: 430px;
-  align-items: flex-start; }
-header nav {
-  width: 780px;
-  height: 35px; }
+  .base header {
+    width: 800px;
+    padding: 5px 30px 5px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+    .base header .icondiv, .base header .namediv, .base header nav {
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 3px 5px 3px 5px;
+      padding: 3px 5px 3px 5px; }
+    .base header .icondiv {
+      background-color: purple;
+      width: 300px;
+      justify-content: flex-start;
+      margin-right: 30px; }
+    .base header .namediv {
+      width: 430px;
+      align-items: flex-start; }
+    .base header nav {
+      width: 780px;
+      height: 35px; }
 
 /*# sourceMappingURL=main.css.map */
