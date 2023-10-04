@@ -85,20 +85,29 @@ body {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      width: 290px;
+      width: 270px;
       margin: 3px, 3px, 3px, 0px;
-      background-color: green; }
-      .base main .sidebar .formdiv {
-        width: 280px;
+      padding: 5px 10px 5px 10px;
+      background-color: green;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center; }
+      .base main .sidebar span, .base main .sidebar .formdiv {
+        width: 100%;
         margin: 3px 3px 3px 3px;
         padding: 3px 3px 3px 3px; }
-      .base main .sidebar .formdiv form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-content: center; }
-        .base main .sidebar .formdiv form .row {
-          margin: 5px 0 5px 0;
-          padding: 3px 0 3px 0; }
+      .base main .sidebar span {
+        text-align: center;
+        background-color: yellow; }
+      .base main .sidebar .formdiv {
+        background-color: white; }
+        .base main .sidebar .formdiv form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-content: center; }
+          .base main .sidebar .formdiv form .row {
+            margin: 5px 0 5px 0;
+            padding: 3px 0 3px 0; }
 
 /*# sourceMappingURL=main.css.map */

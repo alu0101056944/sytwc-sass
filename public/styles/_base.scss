@@ -90,16 +90,26 @@ body {
     }
     .sidebar {
       @include setupFlex();
-      width: 290px;
+      width: 270px;
       margin: 3px, 3px, 3px, 0px;
+      padding: 5px 10px 5px 10px;
       background-color: green;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center;
       %common-sidebar {
-        width: 280px;
+        width: 100%;
         margin: 3px 3px 3px 3px;
         padding: 3px 3px 3px 3px;
       }
+      span {
+        @extend %common-sidebar;
+        text-align: center;
+        background-color: yellow;
+      }
       .formdiv {
         @extend %common-sidebar;
+        background-color: white;
         form {
           display: flex;
           flex-direction: column;
