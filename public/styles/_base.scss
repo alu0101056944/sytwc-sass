@@ -16,31 +16,33 @@ body {
   justify-content: space-evenly;
 }
 
-.header {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-}
+header {
+  %common-header {
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px 5px 3px 5px;
+    padding: 3px 5px 3px 5px;
+  }
 
-.icon-header {
-  @extend .header;
-  background-color: purple;
-  width: 300px;
-  justify-content: flex-start;
-  margin-right: 30px;
-}
+  .icon-header {
+    @extend %common-header;
+    background-color: purple;
+    width: 300px;
+    justify-content: flex-start;
+    margin-right: 30px;
+  }
+  
+  .name-header {
+    @extend %common-header;
+    width: 430px;
+    align-items: flex-start;
+  }
 
-.name-header {
-  @extend .header;
-  width: 430px;
-  align-items: flex-start;
-}
-
-.nav-header {
-  @extend .header;
-  width: 780px;
-  height: 35px;
+  nav {
+    @extend %common-header;
+    width: 780px;
+    height: 35px;
+  }
 }
