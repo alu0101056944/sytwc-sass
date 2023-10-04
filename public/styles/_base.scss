@@ -19,10 +19,10 @@ body {
 }
 
 .base {
+  @include setupFlex();
   @include center;
   background-color: lightgray;
   width: 800px;
-  @include setupFlex();
   border: 1px solid DimGray ;
   header {
     width: 800px;
@@ -143,13 +143,16 @@ body {
   }
   footer {
     @include setupFlex();
+    background-color: yellow;
     flex-direction: column;
     justify-content: flex-start;
-    align-content: center;
     width: 100%;
-    margin: 5px 0px 5px 8px;
+    margin: 5px 0px 5px 0px;
+    overflow: hidden;
     %common-footer {
       width: 100%;
+      margin: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 5px;
     }
     .feature {
       @extend %common-footer;
@@ -163,8 +166,6 @@ body {
         @extend %examples;
       }
     }
-
-
     .garantydiv {
       @extend %common-header;
     }
