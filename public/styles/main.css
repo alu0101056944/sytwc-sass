@@ -51,14 +51,14 @@ body {
         margin: 7px 0 0 0; }
       .base header .namediv h5 {
         margin: 7px 0 0 0; }
-  .base .examples, .base main .content .feature .examples {
+  .base main .content .feature .examples, .base footer .feature .examples {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     justify-content: space-evenly;
     padding: 10px 3px 2px 3px;
     margin: 10px 3px 5px 3px; }
-    .base .examples .example, .base main .content .feature .examples .example {
+    .base main .content .feature .examples .example, .base footer .feature .examples .example {
       background-color: IndianRed;
       width: 90px;
       height: 130px;
@@ -78,15 +78,13 @@ body {
         width: 495px;
         margin: 3px, 0, 3px, 0; }
       .base main .content .feature {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        padding: 5px 0 5px 0;
-        margin: 5px 0 5px 0;
-        background-color: darkgray; }
-        .base main .content .feature .examples {
-          width: 460px; }
+        background-color: MediumOrchid; }
+        .base main .content .feature span {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          text-align: center;
+          padding: 5px 0 5px 0; }
     .base main .sidebar {
       display: flex;
       flex-wrap: wrap;
@@ -128,15 +126,16 @@ body {
     justify-content: flex-start;
     align-content: center;
     width: 100%;
-    background-color: yellow;
-    margin: 5px 0 5px 0; }
+    margin: 5px 0px 5px 8px; }
     .base footer .feature {
-      background-color: blue;
-      margin: 10px 0 15px 0; }
-      .base footer .feature .examples, .base footer main .content .feature .examples, .base main .content footer .feature .examples {
-        background-color: magenta;
-        margin: 5px 0 5px 0; }
-        .base footer .feature .examples .example {
-          width: 125px; }
+      width: 100%; }
+    .base footer .feature {
+      background-color: MediumOrchid; }
+      .base footer .feature span {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        text-align: center;
+        padding: 5px 0 5px 0; }
 
 /*# sourceMappingURL=main.css.map */

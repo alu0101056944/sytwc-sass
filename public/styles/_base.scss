@@ -59,7 +59,7 @@ body {
     }
   }
 
-  .examples {
+  %examples {
     @include setupFlex();
     justify-content: space-evenly;
     padding: 10px 3px 2px 3px;
@@ -87,14 +87,14 @@ body {
       }
       .feature {
         @extend %common-content;
-        @include setupFlex();
-        align-items: center;
-        padding: 5px 0 5px 0;
-        margin: 5px 0 5px 0;
-        background-color: darkgray;
+        background-color: MediumOrchid;
+        span {
+          @include setupFlex;
+          text-align: center;
+          padding: 5px 0 5px 0;
+        }
         .examples {
-          @extend .examples;
-          width: 460px;
+          @extend %examples;
         }
       }
     }
@@ -147,19 +147,23 @@ body {
     justify-content: flex-start;
     align-content: center;
     width: 100%;
-    background-color: yellow;
-    margin: 5px 0 5px 0;
+    margin: 5px 0px 5px 8px;
+    %common-footer {
+      width: 100%;
+    }
     .feature {
-      background-color: blue;
-      margin: 10px 0 15px 0;
+      @extend %common-footer;
+      background-color: MediumOrchid;
+      span {
+        @include setupFlex;
+        text-align: center;
+        padding: 5px 0 5px 0;
+      }
       .examples {
-        background-color: magenta;
-        margin: 5px 0 5px 0;
-        .example {
-          width: 125px;
-        }
+        @extend %examples;
       }
     }
+
 
     .garantydiv {
       @extend %common-header;
