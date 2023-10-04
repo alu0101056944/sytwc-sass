@@ -120,6 +120,10 @@ body {
             margin: 5px 0 5px 0;
             padding: 3px 0 3px 0;
           }
+          input[type="button"] {
+            width: 25%;
+            align-self: center;
+          }
         }
       }
       .contactdiv {

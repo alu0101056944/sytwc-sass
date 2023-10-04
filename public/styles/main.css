@@ -111,5 +111,8 @@ body {
           .base main .sidebar .formdiv form .row {
             margin: 5px 0 5px 0;
             padding: 3px 0 3px 0; }
+          .base main .sidebar .formdiv form input[type="button"] {
+            width: 25%;
+            align-self: center; }
 
 /*# sourceMappingURL=main.css.map */
