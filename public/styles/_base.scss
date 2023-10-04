@@ -66,7 +66,6 @@ body {
     .content {
       width: 495px;
       margin: 3px, 3px, 3px, 3px;
-      background-color: red;
 
       %common-content {
         width: 495px;
@@ -78,19 +77,20 @@ body {
         @include setupFlex();
         align-items: center;
         padding: 5px 0 5px 0;
+        background-color: darkgray;
         .examples {
           @include setupFlex();
-          background-color: magenta;
           width: 460px;
-          height: 300px;
-          padding: 10px, 3px, 10px, 3px;
-          margin: 10px, 3px, 10px, 3px;
+          padding: 10px 3px 10px 3px;
+          margin: 10px 3px 10px 3px;
           .example {
-            background-color: crimson;
+            background-color: IndianRed ;
             width: 100px;
             height: 150px;
-            margin: 3px, 8px, 3px, 8px;
+            margin: 8px 8px 8px 8px;
+            padding: 5px 5px 5px 5px;
             border: 1px solid dimgray;
+            border-radius: 20px;
           }
         }
       }
