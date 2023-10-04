@@ -1,0 +1,70 @@
+@import "./variables.scss";
+
+@mixin center() {
+  margin: 0 auto;
+  width: 50%;
+}
+
+@mixin addFlexLayout() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+@mixin addHStyle($number) {
+  @if $number > 0 && $number <= 7 {
+    h#{$number} {
+      text-align: center;
+      @if $number <= 2 {
+        margin: 15px 0px 15px 0px;
+      } @else {
+        margin: 3px 0px 3px 0px;
+      }
+      padding: 3px 0px 3px 0;
+    }
+  }
+}
+
+@mixin addHeaderStyleHere() {
+  background-color: $headerColors;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 3px 5px 3px 5px;
+  padding: 3px 5px 3px 5px;
+  height: 55px;
+}
+
+@mixin addHoverEffectsOnElements($listOfElements) {
+  @each $element in $listOfElements {
+    input[type="#{$element}"]:hover {
+      background-color: lightgray;
+      border-radius: 4px;
+      border: 1px solid darkgray;
+    }
+  }
+}
+
+@mixin addExamplesStyle() {
+  .examples {
+    @include addFlexLayout();
+    justify-content: space-evenly;
+    padding: 10px 3px 2px 3px;
+    margin: 10px 3px 5px 3px;
+    .example {
+      background-color: IndianRed ;
+      width: 90px;
+      height: 130px;
+      margin: 8px 8px 8px 8px;
+      padding: 5px 5px 5px 5px;
+      border: 1px solid dimgray;
+      border-radius: 20px;
+    }
+  }
+}
+
+@mixin addStyleForFormRow() {
+  margin: 5px 5px 5px 5px;
+  padding: 3px 0 3px 0;
+}

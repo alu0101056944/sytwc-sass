@@ -1,0 +1,126 @@
+// common styles for all the webpage's pages.
+
+@import "./_mixins.scss";
+@import "./variables.scss";
+
+body {
+  background-color: darkgray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.base {
+  @include addFlexLayout();
+  @include center;
+  background-color: lightgray;
+  width: $pageWidth;
+  border: 1px solid DimGray ;
+  header {
+    width: $pageWidth;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .icondiv {
+      @include addHeaderStyleHere();
+      background-color: mediumorchid;
+      width: 24%;
+      height: 60px;
+      justify-content: flex-start;
+      margin-right: 30px;
+      margin-top: 15px;
+      border: 1px solid dimgray;
+      span {
+        margin-left: 8px;
+      }
+    }
+    .namediv {
+      @include addHeaderStyleHere();
+      width: 66%;
+      height: 60px;
+      align-items: flex-start;
+      margin-top: 15px;
+      @include addHStyle(2);
+    }
+    nav {
+      @include addHeaderStyleHere();
+    }
+  }
+
+  main {
+    width: $pageWidth;
+    @include addFlexLayout();
+    .content {
+      width: 495px;
+      margin: 3px, 3px, 3px, 3px;
+      %common-content {
+        width: 495px;
+        margin: 3px, 0, 3px, 0;
+      }
+      .feature {
+        @extend %common-content;
+        background-color: MediumOrchid;
+        @include addHStyle(2);
+        @include addExamplesStyle();
+      }
+    }
+    .sidebar {
+      @include addFlexLayout();
+      width: 255px;
+      margin: 3px, 7px, 3px, 0px;
+      padding: 5px 10px 5px 10px;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center;
+      %common-sidebar {
+        width: 100%;
+        margin: 11px 6px 3px 6px;
+        padding: 3px 3px 3px 3px;
+      }
+      .formdiv {
+        @extend %common-sidebar;
+        background-color: hotpink;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-content: center;
+          .row {
+            @include addStyleForFormRow();
+          }
+          input[type="button"] {
+            width: 25%;
+            align-self: center;
+          }
+          @include addHoverEffectsOnElements($listOfElementsToHighlightInForm);
+        }
+      }
+      .contactdiv {
+        @include addHeaderStyleHere();
+      }
+    }
+  }
+  footer {
+    @include addFlexLayout();
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 97%;
+    margin: 5px 0px 5px 0px;
+    overflow: hidden;
+    %common-footer {
+      width: 100%;
+      margin: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 5px;
+    }
+    .feature {
+      @extend %common-footer;
+      background-color: MediumOrchid;
+      @include addHStyle(5);
+      @include addExamplesStyle();
+    }
+    .garantydiv {
+      @include addHeaderStyleHere();
+    }
+  }
+}
