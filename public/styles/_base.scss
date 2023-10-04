@@ -1,28 +1,18 @@
 // common styles for all the webpage's pages.
 
 @import "./_mixins.scss";
+@import "./variables.scss";
 
 body {
   background-color: darkgray;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-%common-header {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-  height: 55px;
-}
-
 .base {
-  @include setupFlex();
+  @include addFlexLayout();
   @include center;
   background-color: lightgray;
-  width: 800px;
+  width: $pageWidth;
   border: 1px solid DimGray ;
   header {
     width: 800px;
@@ -30,7 +20,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     .icondiv {
-      @extend %common-header;
+      @include addHeaderStyleHere();
       background-color: mediumorchid;
       width: 24%;
       height: 60px;
@@ -43,41 +33,23 @@ body {
       }
     }
     .namediv {
-      @extend %common-header;
+      @include addHeaderStyleHere();
       width: 66%;
       height: 60px;
       align-items: flex-start;
       margin-top: 15px;
       @for $i from 1 to 6 {
-        h#{$i} {
-          margin: 7px 0 0 0 ;
-        }
+        @include addHStyle($i);
       }
     }
     nav {
-      @extend %common-header;
-    }
-  }
-
-  %examples {
-    @include setupFlex();
-    justify-content: space-evenly;
-    padding: 10px 3px 2px 3px;
-    margin: 10px 3px 5px 3px;
-    .example {
-      background-color: IndianRed ;
-      width: 90px;
-      height: 130px;
-      margin: 8px 8px 8px 8px;
-      padding: 5px 5px 5px 5px;
-      border: 1px solid dimgray;
-      border-radius: 20px;
+      @include addHeaderStyleHere();
     }
   }
 
   main {
     width: 800px;
-    @include setupFlex();
+    @include addFlexLayout();
     .content {
       width: 495px;
       margin: 3px, 3px, 3px, 3px;
@@ -89,17 +61,15 @@ body {
         @extend %common-content;
         background-color: MediumOrchid;
         span {
-          @include setupFlex;
+          @include addFlexLayout();
           text-align: center;
           padding: 5px 0 5px 0;
         }
-        .examples {
-          @extend %examples;
-        }
+        @include addExamplesStyle();
       }
     }
     .sidebar {
-      @include setupFlex();
+      @include addFlexLayout();
       width: 255px;
       margin: 3px, 7px, 3px, 0px;
       padding: 5px 10px 5px 10px;
@@ -117,10 +87,6 @@ body {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-        h3 {
-          text-align: center;
-          margin: 3px 7px 3px 7px;
-        }
         form {
           display: flex;
           flex-direction: column;
@@ -135,22 +101,16 @@ body {
             align-self: center;
           }
           $elementsToHighlight: [button text email];
-          @each $element in $elementsToHighlight {
-            input[type="#{$element}"]:hover {
-              background-color: lightgray;
-              border-radius: 4px;
-              border: 1px solid darkgray;
-            }
-          }
+          @include addHoverEffectsOnElements($elementsToHighlight);
         }
       }
       .contactdiv {
-        @extend %common-header;
+        @include addHeaderStyleHere();
       }
     }
   }
   footer {
-    @include setupFlex();
+    @include addFlexLayout();
     flex-direction: column;
     justify-content: flex-start;
     width: 97%;
@@ -165,16 +125,14 @@ body {
       @extend %common-footer;
       background-color: MediumOrchid;
       span {
-        @include setupFlex;
+        @include addFlexLayout();
         text-align: center;
         padding: 5px 0 5px 0;
       }
-      .examples {
-        @extend %examples;
-      }
+      @include addExamplesStyle();
     }
     .garantydiv {
-      @extend %common-header;
+      @include addHeaderStyleHere();
     }
   }
 }
