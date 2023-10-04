@@ -1,7 +1,10 @@
 // common styles for all the webpage's pages.
 
-@import "./_mixings.scss";
+@import "./_mixins.scss";
 
 .base {
   @include center;
+  background-color: black;
+  width: 800px;
+  padding: 5px 30px 5px 30px;
 }
