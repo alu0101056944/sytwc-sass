@@ -28,7 +28,9 @@ body {
       width: 300px;
       justify-content: flex-start;
       margin-right: 30px;
-      border: 1px solid DimGray; }
+      border: 1px solid dimgray; }
+      .base header .icondiv span {
+        margin-left: 8px; }
     .base header .namediv {
       width: 430px;
       align-items: flex-start; }

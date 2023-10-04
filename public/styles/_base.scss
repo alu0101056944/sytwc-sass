@@ -37,7 +37,10 @@ body {
       width: 300px;
       justify-content: flex-start;
       margin-right: 30px;
-      border: 1px solid DimGray ;
+      border: 1px solid dimgray;
+      span {
+        margin-left: 8px;
+      }
     }
 
     .namediv {
