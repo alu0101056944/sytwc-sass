@@ -15,7 +15,7 @@ body {
   width: 100%;
   margin: 3px 5px 3px 5px;
   padding: 3px 5px 3px 5px;
-  height: 35px;
+  height: 55px;
 }
 
 .base {
@@ -36,6 +36,7 @@ body {
       height: 60px;
       justify-content: flex-start;
       margin-right: 30px;
+      margin-top: 15px;
       border: 1px solid dimgray;
       span {
         margin-left: 8px;
@@ -46,6 +47,7 @@ body {
       width: 66%;
       height: 60px;
       align-items: flex-start;
+      margin-top: 15px;
       @for $i from 1 to 6 {
         h#{$i} {
           margin: 7px 0 0 0 ;
@@ -88,6 +90,7 @@ body {
         @include setupFlex();
         align-items: center;
         padding: 5px 0 5px 0;
+        margin: 5px 0 5px 0;
         background-color: darkgray;
         .examples {
           @extend .examples;
@@ -105,7 +108,7 @@ body {
       align-content: center;
       %common-sidebar {
         width: 100%;
-        margin: 11px 3px 3px 3px;
+        margin: 11px 6px 3px 6px;
         padding: 3px 3px 3px 3px;
       }
       .formdiv {
@@ -114,9 +117,9 @@ body {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-        span {
+        h3 {
           text-align: center;
-          margin: 3px 0 3px 0;
+          margin: 3px 7px 3px 7px;
         }
         form {
           display: flex;
@@ -134,24 +137,32 @@ body {
         }
       }
       .contactdiv {
-        @extend %common-sidebar;
-        @include setupFlex();
-        align-items: center;
-        background-color: lightblue;
-        height: 66px;
+        @extend %common-header;
       }
     }
   }
-
   footer {
-    background-color: yellow;
+    @include setupFlex();
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
     width: 100%;
-    .examples {
-      .example {
-        width: 125px;
-        margin: 0 0 0 0;
-        padding: 0 0 0 0;
+    background-color: yellow;
+    margin: 5px 0 5px 0;
+    .feature {
+      background-color: blue;
+      margin: 10px 0 15px 0;
+      .examples {
+        background-color: magenta;
+        margin: 5px 0 5px 0;
+        .example {
+          width: 125px;
+        }
       }
+    }
+
+    .garantydiv {
+      @extend %common-header;
     }
   }
 }

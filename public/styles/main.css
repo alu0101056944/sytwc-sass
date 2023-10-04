@@ -2,7 +2,7 @@ body {
   background-color: darkgray;
   font-family: Arial, Helvetica, sans-serif; }
 
-.base header .icondiv, .base header .namediv, .base header nav {
+.base header .icondiv, .base header .namediv, .base header nav, .base main .sidebar .contactdiv, .base footer .garantydiv {
   background-color: lightblue;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@ body {
   width: 100%;
   margin: 3px 5px 3px 5px;
   padding: 3px 5px 3px 5px;
-  height: 35px; }
+  height: 55px; }
 
 .base {
   margin: 0 auto;
@@ -32,13 +32,15 @@ body {
       height: 60px;
       justify-content: flex-start;
       margin-right: 30px;
+      margin-top: 15px;
       border: 1px solid dimgray; }
       .base header .icondiv span {
         margin-left: 8px; }
     .base header .namediv {
       width: 66%;
       height: 60px;
-      align-items: flex-start; }
+      align-items: flex-start;
+      margin-top: 15px; }
       .base header .namediv h1 {
         margin: 7px 0 0 0; }
       .base header .namediv h2 {
@@ -81,6 +83,7 @@ body {
         justify-content: space-evenly;
         align-items: center;
         padding: 5px 0 5px 0;
+        margin: 5px 0 5px 0;
         background-color: darkgray; }
         .base main .content .feature .examples {
           width: 460px; }
@@ -94,18 +97,18 @@ body {
       flex-direction: column;
       justify-content: flex-start;
       align-content: center; }
-      .base main .sidebar .formdiv, .base main .sidebar .contactdiv {
+      .base main .sidebar .formdiv {
         width: 100%;
-        margin: 11px 3px 3px 3px;
+        margin: 11px 6px 3px 6px;
         padding: 3px 3px 3px 3px; }
       .base main .sidebar .formdiv {
         background-color: hotpink;
         display: flex;
         justify-content: flex-start;
         flex-direction: column; }
-        .base main .sidebar .formdiv span {
+        .base main .sidebar .formdiv h3 {
           text-align: center;
-          margin: 3px 0 3px 0; }
+          margin: 3px 7px 3px 7px; }
         .base main .sidebar .formdiv form {
           display: flex;
           flex-direction: column;
@@ -117,19 +120,23 @@ body {
           .base main .sidebar .formdiv form input[type="button"] {
             width: 25%;
             align-self: center; }
-      .base main .sidebar .contactdiv {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        background-color: lightblue;
-        height: 66px; }
   .base footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
     background-color: yellow;
-    width: 100%; }
-    .base footer .examples .example, .base footer main .content .feature .examples .example, .base main .content .feature footer .examples .example {
-      width: 125px;
-      margin: 0 0 0 0;
-      padding: 0 0 0 0; }
+    margin: 5px 0 5px 0; }
+    .base footer .feature {
+      background-color: blue;
+      margin: 10px 0 15px 0; }
+      .base footer .feature .examples, .base footer main .content .feature .examples, .base main .content footer .feature .examples {
+        background-color: magenta;
+        margin: 5px 0 5px 0; }
+        .base footer .feature .examples .example {
+          width: 125px; }
 
 /*# sourceMappingURL=main.css.map */
