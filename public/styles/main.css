@@ -122,7 +122,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: yellow;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;

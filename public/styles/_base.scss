@@ -143,7 +143,6 @@ body {
   }
   footer {
     @include setupFlex();
-    background-color: yellow;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
