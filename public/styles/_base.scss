@@ -2,6 +2,10 @@
 
 @import "./_mixins.scss";
 
+body {
+  background-color: green;
+}
+
 .base {
   @include center;
   background-color: lightgray;
