@@ -3,3 +3,9 @@
   margin: 0 auto;
   width: 50%;
 }
+
+@mixin setupFlex() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

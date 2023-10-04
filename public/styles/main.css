@@ -48,5 +48,29 @@ body {
     .base header nav {
       width: 780px;
       height: 35px; }
+  .base main {
+    width: 800px; }
+    .base main .content {
+      width: 495px;
+      margin: 3px, 3px, 3px, 3px;
+      background-color: red; }
+      .base main .content .feature {
+        width: 495px;
+        margin: 3px, 0, 3px, 0; }
+      .base main .content .feature {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        justify-content: center; }
+        .base main .content .feature .example {
+          background-color: crimson;
+          width: 100px;
+          height: 150px;
+          margin: 3px, 8px, 3px, 8px;
+          border: 1px solid dimgray; }
+    .base main .sidebar {
+      width: 395px;
+      margin: 3px, 3px, 3px, 0px;
+      background-color: green; }
 
 /*# sourceMappingURL=main.css.map */

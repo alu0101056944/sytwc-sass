@@ -11,9 +11,7 @@ body {
   @include center;
   background-color: lightgray;
   width: 800px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  @include setupFlex();
   border: 1px solid DimGray ;
 
   header {
@@ -59,6 +57,40 @@ body {
       @extend %common-header;
       width: 780px;
       height: 35px;
+    }
+  }
+
+  main {
+    width: 800px;
+
+    .content {
+      width: 495px;
+      margin: 3px, 3px, 3px, 3px;
+      background-color: red;
+
+      %common-content {
+        width: 495px;
+        margin: 3px, 0, 3px, 0;
+      }
+
+      .feature {
+        @extend %common-content;
+        @include setupFlex();
+        justify-content: center;
+        .example {
+          background-color: crimson;
+          width: 100px;
+          height: 150px;
+          margin: 3px, 8px, 3px, 8px;
+          border: 1px solid dimgray;
+        }
+      }
+    }
+
+    .sidebar {
+      width: 395px;
+      margin: 3px, 3px, 3px, 0px;
+      background-color: green;
     }
   }
 }
