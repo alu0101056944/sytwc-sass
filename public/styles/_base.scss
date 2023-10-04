@@ -7,6 +7,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+%common-header {
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 3px 5px 3px 5px;
+  padding: 3px 5px 3px 5px;
+  height: 35px;
+}
+
 .base {
   @include center;
   background-color: lightgray;
@@ -15,22 +26,14 @@ body {
   border: 1px solid DimGray ;
   header {
     width: 800px;
-    padding: 5px 30px 5px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    %common-header {
-      background-color: lightblue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 3px 5px 3px 5px;
-      padding: 3px 5px 3px 5px;
-    }
     .icondiv {
       @extend %common-header;
       background-color: mediumorchid;
-      width: 300px;
+      width: 24%;
+      height: 60px;
       justify-content: flex-start;
       margin-right: 30px;
       border: 1px solid dimgray;
@@ -40,18 +43,33 @@ body {
     }
     .namediv {
       @extend %common-header;
-      width: 430px;
+      width: 66%;
+      height: 60px;
       align-items: flex-start;
       @for $i from 1 to 6 {
         h#{$i} {
-          margin: 0;
+          margin: 7px 0 0 0 ;
         }
       }
     }
     nav {
       @extend %common-header;
-      width: 780px;
-      height: 35px;
+    }
+  }
+
+  .examples {
+    @include setupFlex();
+    justify-content: space-evenly;
+    padding: 10px 3px 2px 3px;
+    margin: 10px 3px 5px 3px;
+    .example {
+      background-color: IndianRed ;
+      width: 90px;
+      height: 130px;
+      margin: 8px 8px 8px 8px;
+      padding: 5px 5px 5px 5px;
+      border: 1px solid dimgray;
+      border-radius: 20px;
     }
   }
 
@@ -72,19 +90,8 @@ body {
         padding: 5px 0 5px 0;
         background-color: darkgray;
         .examples {
-          @include setupFlex();
+          @extend .examples;
           width: 460px;
-          padding: 10px 3px 2px 3px;
-          margin: 10px 3px 5px 3px;
-          .example {
-            background-color: IndianRed ;
-            width: 90px;
-            height: 130px;
-            margin: 8px 8px 8px 8px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid dimgray;
-            border-radius: 20px;
-          }
         }
       }
     }
@@ -132,6 +139,18 @@ body {
         align-items: center;
         background-color: lightblue;
         height: 66px;
+      }
+    }
+  }
+
+  footer {
+    background-color: yellow;
+    width: 100%;
+    .examples {
+      .example {
+        width: 125px;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
       }
     }
   }

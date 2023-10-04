@@ -2,6 +2,16 @@ body {
   background-color: darkgray;
   font-family: Arial, Helvetica, sans-serif; }
 
+.base header .icondiv, .base header .namediv, .base header nav {
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 3px 5px 3px 5px;
+  padding: 3px 5px 3px 5px;
+  height: 35px; }
+
 .base {
   margin: 0 auto;
   width: 50%;
@@ -13,41 +23,47 @@ body {
   border: 1px solid DimGray; }
   .base header {
     width: 800px;
-    padding: 5px 30px 5px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly; }
-    .base header .icondiv, .base header .namediv, .base header nav {
-      background-color: lightblue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 3px 5px 3px 5px;
-      padding: 3px 5px 3px 5px; }
     .base header .icondiv {
       background-color: mediumorchid;
-      width: 300px;
+      width: 24%;
+      height: 60px;
       justify-content: flex-start;
       margin-right: 30px;
       border: 1px solid dimgray; }
       .base header .icondiv span {
         margin-left: 8px; }
     .base header .namediv {
-      width: 430px;
+      width: 66%;
+      height: 60px;
       align-items: flex-start; }
       .base header .namediv h1 {
-        margin: 0; }
+        margin: 7px 0 0 0; }
       .base header .namediv h2 {
-        margin: 0; }
+        margin: 7px 0 0 0; }
       .base header .namediv h3 {
-        margin: 0; }
+        margin: 7px 0 0 0; }
       .base header .namediv h4 {
-        margin: 0; }
+        margin: 7px 0 0 0; }
       .base header .namediv h5 {
-        margin: 0; }
-    .base header nav {
-      width: 780px;
-      height: 35px; }
+        margin: 7px 0 0 0; }
+  .base .examples, .base main .content .feature .examples {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-content: space-evenly;
+    padding: 10px 3px 2px 3px;
+    margin: 10px 3px 5px 3px; }
+    .base .examples .example, .base main .content .feature .examples .example {
+      background-color: IndianRed;
+      width: 90px;
+      height: 130px;
+      margin: 8px 8px 8px 8px;
+      padding: 5px 5px 5px 5px;
+      border: 1px solid dimgray;
+      border-radius: 20px; }
   .base main {
     width: 800px;
     display: flex;
@@ -67,20 +83,7 @@ body {
         padding: 5px 0 5px 0;
         background-color: darkgray; }
         .base main .content .feature .examples {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-evenly;
-          width: 460px;
-          padding: 10px 3px 2px 3px;
-          margin: 10px 3px 5px 3px; }
-          .base main .content .feature .examples .example {
-            background-color: IndianRed;
-            width: 90px;
-            height: 130px;
-            margin: 8px 8px 8px 8px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid dimgray;
-            border-radius: 20px; }
+          width: 460px; }
     .base main .sidebar {
       display: flex;
       flex-wrap: wrap;
@@ -121,5 +124,12 @@ body {
         align-items: center;
         background-color: lightblue;
         height: 66px; }
+  .base footer {
+    background-color: yellow;
+    width: 100%; }
+    .base footer .examples .example, .base footer main .content .feature .examples .example, .base main .content .feature footer .examples .example {
+      width: 125px;
+      margin: 0 0 0 0;
+      padding: 0 0 0 0; }
 
 /*# sourceMappingURL=main.css.map */
