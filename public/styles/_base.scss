@@ -15,7 +15,7 @@ body {
   width: $pageWidth;
   border: 1px solid DimGray ;
   header {
-    width: 800px;
+    width: $pageWidth;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -46,7 +46,7 @@ body {
   }
 
   main {
-    width: 800px;
+    width: $pageWidth;
     @include addFlexLayout();
     .content {
       width: 495px;
@@ -87,15 +87,13 @@ body {
           justify-content: space-between;
           align-content: center;
           .row {
-            margin: 5px 5px 5px 5px;
-            padding: 3px 0 3px 0;
+            @include addStyleForFormRow();
           }
           input[type="button"] {
             width: 25%;
             align-self: center;
           }
-          $elementsToHighlight: [button text email];
-          @include addHoverEffectsOnElements($elementsToHighlight);
+          @include addHoverEffectsOnElements($listOfElementsToHighlightInForm);
         }
       }
       .contactdiv {

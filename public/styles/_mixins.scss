@@ -63,3 +63,8 @@
     }
   }
 }
+
+@mixin addStyleForFormRow() {
+  margin: 5px 5px 5px 5px;
+  padding: 3px 0 3px 0;
+}
