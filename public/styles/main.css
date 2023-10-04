@@ -1,5 +1,5 @@
 body {
-  background-color: green; }
+  background-color: darkgray; }
 
 .base {
   margin: 0 auto;
@@ -8,7 +8,8 @@ body {
   width: 800px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  border: 1px solid DimGray; }
   .base header {
     width: 800px;
     padding: 5px 30px 5px 30px;
@@ -23,33 +24,24 @@ body {
       margin: 3px 5px 3px 5px;
       padding: 3px 5px 3px 5px; }
     .base header .icondiv {
-      background-color: purple;
+      background-color: mediumorchid;
       width: 300px;
       justify-content: flex-start;
-      margin-right: 30px; }
+      margin-right: 30px;
+      border: 1px solid DimGray; }
     .base header .namediv {
       width: 430px;
-      align-items: flex-end;
-      height: 100px; }
+      align-items: flex-start; }
       .base header .namediv h1 {
-        margin: 0;
-        background-color: #1e1e1e; }
+        margin: 0; }
       .base header .namediv h2 {
-        margin: 0;
-        background-color: #3c3c3c; }
+        margin: 0; }
       .base header .namediv h3 {
-        margin: 0;
-        background-color: #5a5a5a; }
+        margin: 0; }
       .base header .namediv h4 {
-        margin: 0;
-        background-color: #787878; }
+        margin: 0; }
       .base header .namediv h5 {
-        margin: 0;
-        background-color: #969696; }
-      .base header .namediv div {
-        width: 60px;
-        height: 40px;
-        background-color: coral; }
+        margin: 0; }
     .base header nav {
       width: 780px;
       height: 35px; }

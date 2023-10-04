@@ -3,7 +3,7 @@
 @import "./_mixins.scss";
 
 body {
-  background-color: green;
+  background-color: darkgray;
 }
 
 .base {
@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  border: 1px solid DimGray ;
 
   header {
     width: 800px;
@@ -32,27 +33,21 @@ body {
 
     .icondiv {
       @extend %common-header;
-      background-color: purple;
+      background-color: mediumorchid;
       width: 300px;
       justify-content: flex-start;
       margin-right: 30px;
+      border: 1px solid DimGray ;
     }
 
     .namediv {
       @extend %common-header;
       width: 430px;
-      align-items: flex-end;
-      height: 100px;
+      align-items: flex-start;
       @for $i from 1 to 6 {
         h#{$i} {
           margin: 0;
-          background-color: rgb($i * 30, $i * 30, $i * 30);
         }
-      }
-      div {
-        width: 60px;
-        height: 40px;
-        background-color: coral;
       }
     }
 
