@@ -92,15 +92,17 @@ body {
       flex-direction: column;
       justify-content: flex-start;
       align-content: center; }
-      .base main .sidebar span, .base main .sidebar .formdiv {
+      .base main .sidebar .formdiv, .base main .sidebar .contactdiv {
         width: 100%;
         margin: 3px 3px 3px 3px;
         padding: 3px 3px 3px 3px; }
-      .base main .sidebar span {
-        text-align: center;
-        background-color: yellow; }
       .base main .sidebar .formdiv {
-        background-color: white; }
+        background-color: white;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column; }
+        .base main .sidebar .formdiv span {
+          text-align: center; }
         .base main .sidebar .formdiv form {
           display: flex;
           flex-direction: column;

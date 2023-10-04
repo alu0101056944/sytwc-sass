@@ -102,14 +102,15 @@ body {
         margin: 3px 3px 3px 3px;
         padding: 3px 3px 3px 3px;
       }
-      span {
-        @extend %common-sidebar;
-        text-align: center;
-        background-color: yellow;
-      }
       .formdiv {
         @extend %common-sidebar;
         background-color: white;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        span {
+          text-align: center;
+        }
         form {
           display: flex;
           flex-direction: column;
@@ -119,6 +120,12 @@ body {
             margin: 5px 0 5px 0;
             padding: 3px 0 3px 0;
           }
+        }
+      }
+      .contactdiv {
+        @extend %common-sidebar;
+        span {
+
         }
       }
     }
