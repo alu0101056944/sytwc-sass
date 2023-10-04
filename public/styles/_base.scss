@@ -128,8 +128,11 @@ body {
       }
       .contactdiv {
         @extend %common-sidebar;
+        @include setupFlex();
+        align-items: center;
+        background-color: lightblue;
+        height: 66px;
         span {
-
         }
       }
     }

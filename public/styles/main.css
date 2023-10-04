@@ -114,5 +114,12 @@ body {
           .base main .sidebar .formdiv form input[type="button"] {
             width: 25%;
             align-self: center; }
+      .base main .sidebar .contactdiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: lightblue;
+        height: 66px; }
 
 /*# sourceMappingURL=main.css.map */
