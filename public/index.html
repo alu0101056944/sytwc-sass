@@ -7,8 +7,9 @@
 </head>
 <body>
   <template id="card-goods">
+    <span>Some arbitrary text</span>
     <div class="examples">
-      <slot name="slot1"><div class="example"></div></slot>
+      <!-- <slot name="slot1"><div class="example"></div></slot> -->
     </div>
   </template>
   <div class="base">
@@ -59,9 +60,13 @@
     <footer>
       <div class="feature">
         <h5>Testimonios, clientes relevantes</h5>
-        <mb-cardgoods>
-
-        </mb-cardgoods>
+        <mb-cardgoods id="foo"></mb-cardgoods>
+        <script>
+          const addedCustom = document.getElementById('foo');
+          if (addedCustom !== undefined) {
+            console.log('not undefined: ' + addedCustom.innerHTML);
+          }
+        </script>
       </div>
       <div class="garantydiv">
         <h5>Garantías</h5>

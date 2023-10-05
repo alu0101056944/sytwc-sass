@@ -10,8 +10,10 @@ export default class CardGoods extends HTMLElement {
 
   constructor() {
     super();
+    const shadow = this.attachShadow({mode: 'closed'});
     const template = document.getElementById('card-goods');
-    this.attachShadow(template, {mode: 'closed'});
+    const clone = template.cloneNode(true);
+    shadow.append(clone);
   }
 
   createdCallback() {
