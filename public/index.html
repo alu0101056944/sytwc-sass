@@ -5,6 +5,16 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+  <template id="card-goods">
+    <div class="examples">
+      <slot name="slot1"><div class="example"></div></slot>
+      <slot name="slot2"><div class="example"></div></slot>
+      <slot name="slot3"><div class="example"></div></slot>
+      <slot name="slot4"><div class="example"></div></slot>
+      <slot name="slot5"><div class="example"></div></slot>
+      <slot name="slot6"><div class="example"></div></slot>
+    </div>
+  </template>
   <div class="base">
     <header>
       <div class="icondiv">
@@ -53,14 +63,7 @@
     <footer>
       <div class="feature">
         <h5>Testimonios, clientes relevantes</h5>
-        <div class="examples">
-          <div class="example"></div>
-          <div class="example"></div>
-          <div class="example"></div>
-          <div class="example"></div>
-          <div class="example"></div>
-          <div class="example"></div>
-        </div>
+        // pending inserting my custom component
       </div>
       <div class="garantydiv">
         <h5>Garantías</h5>
