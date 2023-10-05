@@ -3,16 +3,12 @@
 <head>
   <title>SYTWC Sass assignment</title>
   <link rel="stylesheet" href="styles/main.css">
+  <script defer type="module" src="./src/main.mjs"></script>
 </head>
 <body>
   <template id="card-goods">
     <div class="examples">
       <slot name="slot1"><div class="example"></div></slot>
-      <slot name="slot2"><div class="example"></div></slot>
-      <slot name="slot3"><div class="example"></div></slot>
-      <slot name="slot4"><div class="example"></div></slot>
-      <slot name="slot5"><div class="example"></div></slot>
-      <slot name="slot6"><div class="example"></div></slot>
     </div>
   </template>
   <div class="base">
@@ -63,7 +59,9 @@
     <footer>
       <div class="feature">
         <h5>Testimonios, clientes relevantes</h5>
-        // pending inserting my custom component
+        <mb-cardgoods>
+
+        </mb-cardgoods>
       </div>
       <div class="garantydiv">
         <h5>Garantías</h5>
