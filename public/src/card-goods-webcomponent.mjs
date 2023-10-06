@@ -16,12 +16,12 @@ export default class CardGoods extends HTMLElement {
     this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
     const template = document.getElementById('card-goods').content;
     const templateClone = template.cloneNode(true);
-    const originalSlot = templateClone.getElementById('card-goods-slot');
+    const originalSlot = template.getElementById('card-goods-slot');
     this.#originalSlot = originalSlot.clone(true);
     originalSlot.remove();
     for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
       const newSlot = this.#originalSlot.cloneNode(true);
-      newSlot.id = newSlot.id + i;
+      newSlot.id = 'card-goods-slot' + i;
       templateClone.append(newSlot);
     }
     this.#shadow = this.attachShadow({mode: 'closed'});
@@ -52,7 +52,7 @@ export default class CardGoods extends HTMLElement {
       } else {
         for (let i = oldLength + 1; i <= newLength; i++) {
           const newSlot = this.#originalSlot.clone(true);
-          newSlot.id = newSlot.id + i;
+          newSlot.id = 'card-goods-slot' + i;
           this.#shadow.append(newSlot);
         }
       }
