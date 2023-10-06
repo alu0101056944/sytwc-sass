@@ -11,7 +11,7 @@ export default class CardGoods extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({mode: 'closed'});
-    const template = document.getElementById('card-goods');
+    const template = document.getElementById('card-goods').content;
     const clone = template.cloneNode(true);
     shadow.append(clone);
   }
