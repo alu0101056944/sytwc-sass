@@ -54,17 +54,23 @@ export default class CardGoods extends HTMLElement {
   attributeChangedCallback(attributeName, oldValue, newValue) {
     if (attributeName === 'length') {
       const newLength = parseInt(newValue, 10);
-      const oldLength = parseInt(oldValue, 10);
+      let oldLength;
+      if (oldValue) {
+        oldLength = parseInt(oldValue, 10);
+      } else {
+        const initialValue = this.#amountOfPlaceholderCards;
+        oldLength = initialValue;
+      }
       if (oldLength < newLength) {
+        for (let i = oldLength + 1; i <= newLength; i++) {
+          const newSlot = this.#originalSlot.cloneNode(true);
+          newSlot.name = 'card-goods-slot' + i;
+          this.#shadow.append(newSlot);
+        }
+      } else {
         for (let i = this.#amountOfPlaceholderCards; i >= newLength; i--) {
           const slotToRemove = document.getElementById('card-goods-slot' + i);
           slotToRemove.remove();
-        }
-      } else {
-        for (let i = oldLength + 1; i <= newLength; i++) {
-          const newSlot = this.#originalSlot.clone(true);
-          newSlot.name = 'card-goods-slot' + i;
-          this.#shadow.append(newSlot);
         }
       }
     }
