@@ -15,9 +15,19 @@ export default class CardGoods extends HTMLElement {
     super();
     this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
     const template = document.getElementById('card-goods').content;
-    const templateClone = template.cloneNode(true);
-    const originalSlot = template.getElementById('card-goods-slot');
+    const childSlots = template.querySelector('.slot');
+    let originalNode;
+    for (let i = 0; i < childSlots; i++) {
+      if (childSlots[i].getAttribute('name') === 'card-goods-slot') {
+        originalNode = childSlots[i];
+        break;
+      }
+    }
+    if (!originalNode) {
+      throw new Error('Template does not have any card-goods-slot slot.');
+    }
     this.#originalSlot = originalSlot.clone(true);
+    const templateClone = template.cloneNode(true);
     originalSlot.remove();
     for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
       const newSlot = this.#originalSlot.cloneNode(true);
