@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "sass --watch public/styles/:public/styles/; http-server -c-1 -o"
+    "run": "sass --watch public/styles/:public/styles/",
+    "serve" : "http-server -c-1 -o"
   },
   "repository": {
     "type": "git",
