@@ -14,28 +14,29 @@ export default class CardGoods extends HTMLElement {
   constructor() {
     super();
     this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
-    const template = document.getElementById('card-goods').content;
-    const childSlots = template.querySelector('.slot');
-    let originalNode;
-    for (let i = 0; i < childSlots; i++) {
+    const templateContent = document.getElementById('card-goods').content;
+    const templateCloneContent = templateContent.cloneNode(true);
+    const childSlots = templateCloneContent.querySelectorAll('slot');
+    let originalSlot;
+    for (let i = 0; i < childSlots.length; i++) {
       if (childSlots[i].getAttribute('name') === 'card-goods-slot') {
-        originalNode = childSlots[i];
+        originalSlot = childSlots[i];
         break;
       }
     }
-    if (!originalNode) {
+    if (!originalSlot) {
       throw new Error('Template does not have any card-goods-slot slot.');
     }
-    this.#originalSlot = originalSlot.clone(true);
-    const templateClone = template.cloneNode(true);
+    this.#originalSlot = originalSlot.cloneNode(true);
     originalSlot.remove();
+    const mainDiv = templateCloneContent.querySelector('.examples');
     for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
       const newSlot = this.#originalSlot.cloneNode(true);
-      newSlot.id = 'card-goods-slot' + i;
-      templateClone.append(newSlot);
+      newSlot.name = 'card-goods-slot' + i;
+      mainDiv.append(newSlot);
     }
     this.#shadow = this.attachShadow({mode: 'closed'});
-    this.#shadow.append(templateClone);
+    this.#shadow.append(templateCloneContent);
   }
 
   createdCallback() {
@@ -62,7 +63,7 @@ export default class CardGoods extends HTMLElement {
       } else {
         for (let i = oldLength + 1; i <= newLength; i++) {
           const newSlot = this.#originalSlot.clone(true);
-          newSlot.id = 'card-goods-slot' + i;
+          newSlot.name = 'card-goods-slot' + i;
           this.#shadow.append(newSlot);
         }
       }
