@@ -10,6 +10,7 @@ export default class CardGoods extends HTMLElement {
   #amountOfPlaceholderCards = undefined;
   #originalSlot = undefined;
   #shadow = undefined;
+  #mainDiv = undefined;
 
   constructor() {
     super();
@@ -29,11 +30,11 @@ export default class CardGoods extends HTMLElement {
     }
     this.#originalSlot = originalSlot.cloneNode(true);
     originalSlot.remove();
-    const mainDiv = templateCloneContent.querySelector('.examples');
+    this.#mainDiv = templateCloneContent.querySelector('.examples');
     for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
       const newSlot = this.#originalSlot.cloneNode(true);
       newSlot.name = 'card-goods-slot' + i;
-      mainDiv.append(newSlot);
+      this.#mainDiv.append(newSlot);
     }
     this.#shadow = this.attachShadow({mode: 'closed'});
     this.#shadow.append(templateCloneContent);
@@ -65,7 +66,7 @@ export default class CardGoods extends HTMLElement {
         for (let i = oldLength + 1; i <= newLength; i++) {
           const newSlot = this.#originalSlot.cloneNode(true);
           newSlot.name = 'card-goods-slot' + i;
-          this.#shadow.append(newSlot);
+          this.#mainDiv.append(newSlot);
         }
       } else {
         for (let i = this.#amountOfPlaceholderCards; i >= newLength; i--) {
