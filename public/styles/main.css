@@ -149,11 +149,9 @@ body {
     justify-content: space-evenly;
     flex-direction: column;
     justify-content: flex-start;
-    width: 97%;
-    margin: 5px 0px 5px 0px;
-    overflow: hidden; }
-    .base footer .feature {
-      width: 100%;
+    width: 100%;
+    margin: 5px 0px 5px 0px; }
+    .base footer .feature, .base footer .garantydiv {
       margin: 5px 5px 5px 5px;
       padding: 5px 5px 5px 5px; }
     .base footer .feature {
@@ -185,6 +183,7 @@ body {
       width: 100%;
       margin: 3px 5px 3px 5px;
       padding: 3px 5px 3px 5px;
-      height: 55px; }
+      height: 55px;
+      width: 97%; }
 
 /*# sourceMappingURL=main.css.map */

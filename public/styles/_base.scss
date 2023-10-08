@@ -105,11 +105,9 @@ body {
     @include addFlexLayout();
     flex-direction: column;
     justify-content: flex-start;
-    width: 97%;
+    width: 100%;
     margin: 5px 0px 5px 0px;
-    overflow: hidden;
     %common-footer {
-      width: 100%;
       margin: 5px 5px 5px 5px;
       padding: 5px 5px 5px 5px;
     }
@@ -120,7 +118,9 @@ body {
       @include addExamplesStyle();
     }
     .garantydiv {
+      @extend %common-footer;
       @include addHeaderStyleHere();
+      width: 97%;
     }
   }
 }
