@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "sass --watch public/styles/:public/styles/",
-    "serve" : "http-server -c-1 -o"
+    "serve": "http-server -c-1 -o"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/alu0101056944/sytwc-sass#readme",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "sass": "^1.69.0"
   }
 }
