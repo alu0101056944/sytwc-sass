@@ -7,8 +7,6 @@
 
 'use strict';
 
-import { readFileSync } from 'fs';
-
 export default class CardGoods extends HTMLElement {
   static observedAttributes = ['length'];
   #amountOfPlaceholderCards = undefined;
@@ -42,15 +40,26 @@ export default class CardGoods extends HTMLElement {
     }
     this.#shadow = this.attachShadow({mode: 'closed'});
     this.#shadow.append(templateCloneContent);
-    try {
-      const CSS_STYLING_STRING = readFileSync('public/styles/card-goods.css', 'utf8');
-      const styleElement = document.createElement('style');
-      styleElement.textContent = CSS_STYLING_STRING;
-      this.#shadow.append(styleElement);
-    } catch (err) {
-      console.err('Error: could\'t read public/styles/card-goods.css');
-      console.err('Style not loaded for card-gods webcomp.');
-    }
+    const CSS_STYLING_STRING = `
+      .examples {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 10px 3px 2px 3px;
+        margin: 10px 3px 5px 3px;
+      }
+      .examples .example {
+        background-color: IndianRed;
+        width: 90px;
+        height: 130px;
+        margin: 8px 8px 8px 8px;
+        padding: 5px 5px 5px 5px;
+        border: 1px solid dimgray;
+        border-radius: 20px;
+      }`;
+    const styleElement = document.createElement('style');
+    styleElement.textContent = CSS_STYLING_STRING;
+    this.#shadow.append(styleElement);
   }
 
   createdCallback() {

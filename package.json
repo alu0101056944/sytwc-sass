@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/alu0101056944/sytwc-sass#readme",
   "dependencies": {
-    "http-server": "^14.1.1",
-    "sass": "^1.69.0"
+    "http-server": "^14.1.1"
   }
 }
