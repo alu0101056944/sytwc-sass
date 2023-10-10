@@ -62,10 +62,6 @@ export default class CardGoods extends HTMLElement {
     this.#shadow.append(styleElement);
   }
 
-  createdCallback() {
-    console.log('WebComponent CardGoods created.');
-  }
-
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
   }
