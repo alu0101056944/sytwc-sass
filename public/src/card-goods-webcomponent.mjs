@@ -99,12 +99,12 @@ export default class CardGoods extends HTMLElement {
     } else if (attributeName === 'width') {
       const exampleArray = this.#shadow.querySelectorAll('.example');
       exampleArray.forEach((example) => {
-        example.style.width = /px$/.test(newValue) ? newValue : newValue + 'px';
+        example.style.width = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
       });
     } else if (attributeName === 'height') {
       const exampleArray = this.#shadow.querySelectorAll('.example');
       exampleArray.forEach((example) => {
-        example.style.height = /px$/.test(newValue) ? newValue : newValue + 'px';
+        example.style.height = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
       });
     }
   }
