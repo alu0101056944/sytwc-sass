@@ -64,6 +64,7 @@ export default class CardGoods extends HTMLElement {
     const styleElement = document.createElement('style');
     styleElement.textContent = CSS_STYLING_STRING;
     this.#shadow.append(styleElement);
+    console.log('WebComponent CardGoods created.');
   }
 
   connectedCallback() {
