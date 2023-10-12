@@ -21,7 +21,13 @@ export default class CardGoods extends HTMLElement {
     this.#cardWidth = this.width ? parseInt(this.width) : 90;
     this.#cardHeight = this.height ? parseInt(this.height) : 130;
     this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
-    const templateContent = document.getElementById('card-goods').content;
+    const template = document.createElement('template');
+    template.innerHTML = `
+    <div class="examples">
+      <slot name="card-goods-slot"><div class="example"></div></slot>
+    </div>
+    `;
+    const templateContent = template.content;
     const templateCloneContent = templateContent.cloneNode(true);
     const childSlots = templateCloneContent.querySelectorAll('slot');
     let originalSlot;
