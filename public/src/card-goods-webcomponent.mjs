@@ -23,13 +23,13 @@ export default class CardGoods extends HTMLElement {
     this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
     const template = this.#defineTemplate();
     const templateContent = template.content;
-    const templateCloneContent = templateContent.cloneNode(true);
-    this.#originalSlot = this.#getSlotIn(templateCloneContent);
+    const templateContentClone = templateContent.cloneNode(true);
+    this.#originalSlot = this.#getSlotIn(templateContentClone);
     this.#originalSlot.remove();
-    this.#mainDiv = templateCloneContent.querySelector('.examples');
+    this.#mainDiv = templateContentClone.querySelector('.examples');
     this.#appendSlotsIntoMainDiv();
     this.#shadow = this.attachShadow({mode: 'closed'});
-    this.#shadow.append(templateCloneContent);
+    this.#shadow.append(templateContentClone);
     this.#setTemplateStyle();
     console.log('WebComponent CardGoods created.');
   }
