@@ -21,33 +21,13 @@ export default class CardGoods extends HTMLElement {
     this.#cardWidth = this.width ? parseInt(this.width) : 90;
     this.#cardHeight = this.height ? parseInt(this.height) : 130;
     this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
-    const template = document.createElement('template');
-    template.innerHTML = `
-    <div class="examples">
-      <slot name="card-goods-slot"><div class="example"></div></slot>
-    </div>
-    `;
+    const template = this.#defineTemplate();
     const templateContent = template.content;
     const templateCloneContent = templateContent.cloneNode(true);
-    const childSlots = templateCloneContent.querySelectorAll('slot');
-    let originalSlot;
-    for (let i = 0; i < childSlots.length; i++) {
-      if (childSlots[i].getAttribute('name') === 'card-goods-slot') {
-        originalSlot = childSlots[i];
-        break;
-      }
-    }
-    if (!originalSlot) {
-      throw new Error('Template does not have any card-goods-slot slot.');
-    }
-    this.#originalSlot = originalSlot.cloneNode(true);
-    originalSlot.remove();
+    this.#originalSlot = this.#getSlotIn(templateCloneContent);
+    this.#originalSlot.remove();
     this.#mainDiv = templateCloneContent.querySelector('.examples');
-    for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
-      const newSlot = this.#originalSlot.cloneNode(true);
-      newSlot.name = 'card-goods-slot' + i;
-      this.#mainDiv.append(newSlot);
-    }
+    this.#appendSlotsIntoMainDiv();
     this.#shadow = this.attachShadow({mode: 'closed'});
     this.#shadow.append(templateCloneContent);
     const CSS_STYLING_STRING = `
@@ -71,6 +51,37 @@ export default class CardGoods extends HTMLElement {
     styleElement.textContent = CSS_STYLING_STRING;
     this.#shadow.append(styleElement);
     console.log('WebComponent CardGoods created.');
+  }
+
+  #defineTemplate() {
+    const template = document.createElement('template');
+    const content = template.content;
+    const divOutermost = document.createElement('div');
+    divOutermost.classList.add('examples');
+    content.append(divOutermost);
+    const slotForFutureDeletion = document.createElement('slot');
+    divOutermost.append(slotForFutureDeletion);
+    const divWithExample = document.createElement('div');
+    divWithExample.classList.add('example');
+    slotForFutureDeletion.append(divWithExample);
+    return template;
+  }
+
+  #getSlotIn(templateContent) {
+    const childSlots = templateContent.querySelectorAll('slot');
+    const originalSlot = childSlots[0];
+    if (!originalSlot) {
+      throw new Error('Template does not have any slots.');
+    }
+    return originalSlot;
+  }
+
+  #appendSlotsIntoMainDiv() {
+    for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
+      const newSlot = this.#originalSlot.cloneNode(true);
+      newSlot.name = 'card-goods-slot' + i;
+      this.#mainDiv.append(newSlot);
+    }
   }
 
   connectedCallback() {
