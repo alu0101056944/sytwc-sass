@@ -1,16 +1,19 @@
 /**
  * @author Marcos Barrios
- * @since 05_10_2023
- * @brief Component containing different cards with a table like appearance.
- * @module CardGoodsWebcomponent
+ * @since 14_10_2023
+ * @desc Represents the html structure and the css style of dashboard with
+ *    cards.
+ * @module CardGoodsView
+ *
  */
 
 'use strict';
 
 /**
- * Component containing different cards with a table like appearance.
+ * Represents the html structure and the css style of dashboard with
+ *    cards.
  */
-export default class CardGoods extends HTMLElement {
+export default class CardGoodsView extends HTMLElement {
   /** @static */
   static observedAttributes = ['length', 'width', 'height'];
 
@@ -19,16 +22,7 @@ export default class CardGoods extends HTMLElement {
   #shadow = undefined;
   #mainDiv = undefined;
 
-  /** @private */
-  #amountOfPlaceholderCards = undefined;
-  #cardHeight = undefined;
-  #cardWidth = undefined;
-
   constructor() {
-    super();
-    this.#cardWidth = this.width ? parseInt(this.width) : 90;
-    this.#cardHeight = this.height ? parseInt(this.height) : 130;
-    this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
     const template = this.#defineTemplate();
     const templateContent = template.content;
     const templateContentClone = templateContent.cloneNode(true);
@@ -94,48 +88,5 @@ export default class CardGoods extends HTMLElement {
     const styleElement = document.createElement('style');
     styleElement.textContent = CSS_STYLING_STRING;
     this.#shadow.append(styleElement);
-  }
-
-  connectedCallback() {
-    console.log('WebComponent CardGoods connected.');
-  }
-
-  disconnectedCallback() {
-    console.log('WebComponent CardGoods disconnected.');
-  }
-
-  attributeChangedCallback(attributeName, oldValue, newValue) {
-    if (attributeName === 'length') {
-      const newLength = parseInt(newValue, 10);
-      let oldLength;
-      if (oldValue) {
-        oldLength = parseInt(oldValue, 10);
-      } else {
-        const initialValue = this.#amountOfPlaceholderCards;
-        oldLength = initialValue;
-      }
-      if (oldLength < newLength) {
-        for (let i = oldLength + 1; i <= newLength; i++) {
-          const newSlot = this.#originalSlot.cloneNode(true);
-          newSlot.name = 'card-goods-slot' + i;
-          this.#mainDiv.append(newSlot);
-        }
-      } else {
-        for (let i = this.#amountOfPlaceholderCards; i >= newLength; i--) {
-          const slotToRemove = document.getElementById('card-goods-slot' + i);
-          slotToRemove.remove();
-        }
-      }
-    } else if (attributeName === 'width') {
-      const exampleArray = this.#shadow.querySelectorAll('.example');
-      exampleArray.forEach((example) => {
-        example.style.width = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
-      });
-    } else if (attributeName === 'height') {
-      const exampleArray = this.#shadow.querySelectorAll('.example');
-      exampleArray.forEach((example) => {
-        example.style.height = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
-      });
-    }
   }
 }

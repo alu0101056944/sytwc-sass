@@ -1,20 +1,29 @@
 /**
  * @author Marcos Barrios
  * @since 14_10_2023
- * @brief Dashboard with cards.
- *
+ * @desc Represents a dashboard with cards.
+ * @module CardGoodsModel
  */
 
 'use strict';
 
+/**
+ * Represents a dashboard with cards.
+ */
 export default class CardGoodsModel {
+  
+  /** @private */
   #amountOfPlaceholderCards = undefined;
   #cardWidth = undefined;
   #cardHeight = undefined;
+
+  /**
+   * @param {number} length amount of cards
+   */
   constructor(length) {
-    this.#cardWidth = this.width ? parseInt(this.width) : 90;
-    this.#cardHeight = this.height ? parseInt(this.height) : 130;
-    this.#amountOfPlaceholderCards = this.length ? parseInt(this.length, 10) : 1;
+    this.#cardWidth = 90;
+    this.#cardHeight = 130;
+    this.#amountOfPlaceholderCards = length ? parseInt(this.length, 10) : 1;
   }
 
   getCardWidth() {
