@@ -8,6 +8,11 @@
 'use strict';
 
 /**
+ * This is one of the inputs for the controller; what the user specifies in the
+ * html component goes to the controller which knows what to call in the model.
+ */
+
+/**
  * Component containing different cards with a table like appearance.
  */
 export default class CardGoods extends HTMLElement {

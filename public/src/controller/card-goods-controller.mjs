@@ -8,6 +8,11 @@
 'use strict';
 
 /**
+ * Checks the webcomponent values on the model and also passes the text
+ * data from the REST server to the view.
+ */
+
+/**
  * Make the REST API requests to fill the data the model needs.
  */
 export default class CardGoodsController {

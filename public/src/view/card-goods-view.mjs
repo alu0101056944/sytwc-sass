@@ -10,13 +10,18 @@
 'use strict';
 
 /**
+ * Have an update method that is dispatched by the controller, which
+ * gives the information. all the communication is done by events,
+ * which is better than dependencies because we take advantage of a component
+ * that is already in the arquitecture anyways instead of going our own way,
+ * which would be the same than just passing the info by events.
+ */
+
+/**
  * Represents the html structure and the css style of dashboard with
  *    cards.
  */
-export default class CardGoodsView extends HTMLElement {
-  /** @static */
-  static observedAttributes = ['length', 'width', 'height'];
-
+export default class CardGoodsView {
   /** @private @constant */
   #originalSlot = undefined;
   #shadow = undefined;
