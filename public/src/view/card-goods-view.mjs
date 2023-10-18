@@ -64,14 +64,6 @@ export default class CardGoodsView {
     return originalSlot;
   }
 
-  #appendSlotsIntoMainDiv() {
-    for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
-      const newSlot = this.#originalSlot.cloneNode(true);
-      newSlot.name = 'card-goods-slot' + i;
-      this.#mainDiv.append(newSlot);
-    }
-  }
-
   #setTemplateStyle() {
     const CSS_STYLING_STRING = `
       .examples {
@@ -93,5 +85,42 @@ export default class CardGoodsView {
     const styleElement = document.createElement('style');
     styleElement.textContent = CSS_STYLING_STRING;
     this.#shadow.append(styleElement);
+  }
+
+  update() {
+    // controller is the one who updates.
+    // but i dont want controller to have to specify all the info,
+    // maybe have view get access to the model 
+  }
+
+  #updateLength() {
+    const newLength = parseInt(newValue, 10);
+    let oldLength;
+    if (oldValue) {
+      oldLength = parseInt(oldValue, 10);
+    } else {
+      const initialValue = this.#amountOfPlaceholderCards;
+      oldLength = initialValue;
+    }
+    if (oldLength < newLength) {
+      for (let i = oldLength + 1; i <= newLength; i++) {
+        const newSlot = this.#originalSlot.cloneNode(true);
+        newSlot.name = 'card-goods-slot' + i;
+        this.#mainDiv.append(newSlot);
+      }
+    } else {
+      for (let i = this.#amountOfPlaceholderCards; i >= newLength; i--) {
+        const slotToRemove = document.getElementById('card-goods-slot' + i);
+        slotToRemove.remove();
+      }
+    }
+  }
+
+  #appendSlotsIntoMainDiv() {
+    for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
+      const newSlot = this.#originalSlot.cloneNode(true);
+      newSlot.name = 'card-goods-slot' + i;
+      this.#mainDiv.append(newSlot);
+    }
   }
 }

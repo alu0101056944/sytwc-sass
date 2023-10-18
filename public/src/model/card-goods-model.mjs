@@ -22,43 +22,10 @@
 export default class CardGoodsModel {
   
   /** @private */
-  #amountOfPlaceholderCards = undefined;
-  #cardWidth = undefined;
-  #cardHeight = undefined;
+  #cards = undefined;
 
-  /**
-   * @param {number} length amount of cards
-   */
-  constructor(length) {
-    this.#cardWidth = 90;
-    this.#cardHeight = 130;
-    this.#amountOfPlaceholderCards = length ? parseInt(this.length, 10) : 1;
+  constructor() {
+    this.#cards = [];
   }
 
-  getCardWidth() {
-    return this.#cardWidth;
-  }
-
-  setCardWidth(cardWidth) {
-    this.#cardWidth = cardWidth;
-  }
-
-  getCardHeight() {
-    return this.#cardHeight;
-  }
-
-  setCardHeight(cardHeight) {
-    this.#cardHeight = cardHeight;
-  }
-
-  /**
-   * @return {number} amountOfPlaceholderCards
-   */
-  getLength() {
-    return this.#amountOfPlaceholderCards;
-  }
-
-  setLength(length) {
-    this.#amountOfPlaceholderCards = length;
-  }
 }
