@@ -8,8 +8,12 @@
 'use strict';
 
 export default class CardView {
-  
-  constructor() {
+
+  /**
+   * 
+   * @param {object} parent DOM node
+   */
+  constructor(parent) {
 
   }
 }

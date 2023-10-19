@@ -33,6 +33,7 @@ export default class CardGoods extends HTMLElement {
   }
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
+    console.log('Changed attribute ' + attributeName);
     if (attributeName === 'length') {
       
     } else if (attributeName === 'width') {

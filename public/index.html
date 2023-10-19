@@ -7,6 +7,16 @@
   <script defer src="src/event-attempt.mjs"></script>
 </head>
 <body>
+  <template id="card-goods-template">
+    <div class="examples">
+      <slot name="card-slot1"></slot>
+      <slot name="card-slot2"></slot>
+      <slot name="card-slot3"></slot>
+      <slot name="card-slot4"></slot>
+      <slot name="card-slot5"></slot>
+      <slot name="card-slot6"></slot>
+    </div>
+  </template>
   <div class="base">
     <header>
       <div class="icondiv">
@@ -55,7 +65,7 @@
     <footer>
       <div class="feature">
         <h5>Testimonios, clientes relevantes</h5>
-        <mb-cardgoods length="6" width="200" height="25"></mb-cardgoods>
+        <mb-cardgoods width="200" height="25"></mb-cardgoods>
       </div>
       <div class="garantydiv">
         <h5>Garantías</h5>
