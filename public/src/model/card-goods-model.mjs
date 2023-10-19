@@ -28,4 +28,7 @@ export default class CardGoodsModel {
     this.#cards = [];
   }
 
+  getCards() {
+    return this.#cards;
+  }
 }
