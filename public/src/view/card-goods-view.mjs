@@ -27,6 +27,11 @@ export default class CardGoodsView {
   #shadow = undefined;
   #mainDiv = undefined;
 
+  /** @private */
+  #amountOfPlaceholderCards = undefined;
+  #cardHeight = undefined;
+  #cardWidth = undefined;
+
   constructor() {
     const template = this.#defineTemplate();
     const templateContent = template.content;
@@ -38,7 +43,6 @@ export default class CardGoodsView {
     this.#shadow = this.attachShadow({mode: 'closed'});
     this.#shadow.append(templateContentClone);
     this.#setTemplateStyle();
-    console.log('WebComponent CardGoods created.');
   }
 
   #defineTemplate() {
@@ -64,6 +68,14 @@ export default class CardGoodsView {
     return originalSlot;
   }
 
+  #appendSlotsIntoMainDiv() {
+    for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
+      const newSlot = this.#originalSlot.cloneNode(true);
+      newSlot.name = 'card-goods-slot' + i;
+      this.#mainDiv.append(newSlot);
+    }
+  }
+
   #setTemplateStyle() {
     const CSS_STYLING_STRING = `
       .examples {
@@ -87,40 +99,47 @@ export default class CardGoodsView {
     this.#shadow.append(styleElement);
   }
 
-  update() {
-    // controller is the one who updates.
-    // but i dont want controller to have to specify all the info,
-    // maybe have view get access to the model 
-  }
-
-  #updateLength() {
-    const newLength = parseInt(newValue, 10);
-    let oldLength;
+  updateCardAmount(oldAmount, newAmount) {
+    const newAmount = parseInt(newValue, 10);
+    let oldAmount;
     if (oldValue) {
-      oldLength = parseInt(oldValue, 10);
+      oldAmount = parseInt(oldValue, 10);
     } else {
       const initialValue = this.#amountOfPlaceholderCards;
-      oldLength = initialValue;
+      oldAmount = initialValue;
     }
-    if (oldLength < newLength) {
-      for (let i = oldLength + 1; i <= newLength; i++) {
+    if (oldAmount < newAmount) {
+      for (let i = oldAmount + 1; i <= newAmount; i++) {
         const newSlot = this.#originalSlot.cloneNode(true);
         newSlot.name = 'card-goods-slot' + i;
         this.#mainDiv.append(newSlot);
       }
     } else {
-      for (let i = this.#amountOfPlaceholderCards; i >= newLength; i--) {
+      for (let i = this.#amountOfPlaceholderCards; i >= newAmount; i--) {
         const slotToRemove = document.getElementById('card-goods-slot' + i);
         slotToRemove.remove();
       }
     }
+    this.#amountOfPlaceholderCards = newAmount;
   }
 
-  #appendSlotsIntoMainDiv() {
-    for (let i = 1; i <= this.#amountOfPlaceholderCards; ++i) {
-      const newSlot = this.#originalSlot.cloneNode(true);
-      newSlot.name = 'card-goods-slot' + i;
-      this.#mainDiv.append(newSlot);
-    }
+  updateCardWidth(newWidth) {
+    this.#updateCardGeometry('width', newWidth);
+    this.#cardWidth = newWidth;
+  }
+
+  updateCardHeight(newHeight) {
+    this.#updateCardGeometry('height', newHeight);
+    this.#cardHeight = newHeight;
+  }
+
+  /**
+   * @param {string} sideName either width or height
+   */
+  #updateCardGeometry(sideName, newValue) {
+    const exampleArray = this.#shadow.querySelectorAll('.example');
+    exampleArray.forEach((example) => {
+      example.style[sideName] = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
+    });
   }
 }
