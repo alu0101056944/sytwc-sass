@@ -2,7 +2,10 @@
  * @author Marcos Barrios
  * @since 18_10_2023
  * @desc A card with a map of string information.
+ * @module CardModel
  */
+
+'use strict';
 
 export default class CardModel {
   /** @private */
