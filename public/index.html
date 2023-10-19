@@ -9,12 +9,12 @@
 <body>
   <template id="card-goods-template">
     <div class="examples">
-      <slot name="card-slot1"></slot>
-      <slot name="card-slot2"></slot>
-      <slot name="card-slot3"></slot>
-      <slot name="card-slot4"></slot>
-      <slot name="card-slot5"></slot>
-      <slot name="card-slot6"></slot>
+      <slot name="card-slot1">foo1</slot>
+      <slot name="card-slot2">foo2</slot>
+      <slot name="card-slot3">foo3</slot>
+      <slot name="card-slot4">foo4</slot>
+      <slot name="card-slot5">foo5</slot>
+      <slot name="card-slot6">foo6</slot>
     </div>
   </template>
   <div class="base">
@@ -65,7 +65,14 @@
     <footer>
       <div class="feature">
         <h5>Testimonios, clientes relevantes</h5>
-        <mb-cardgoods width="200" height="25"></mb-cardgoods>
+        <mb-cardgoods width="200" height="25">
+          <div slot="card-slot1" class="example"></div>
+          <div slot="card-slot2" class="example"></div>
+          <div slot="card-slot3" class="example"></div>
+          <div slot="card-slot4" class="example"></div>
+          <div slot="card-slot5" class="example"></div>
+          <div slot="card-slot6" class="example"></div>
+        </mb-cardgoods>
       </div>
       <div class="garantydiv">
         <h5>Garantías</h5>

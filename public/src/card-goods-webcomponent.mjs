@@ -2,26 +2,29 @@
  * @author Marcos Barrios
  * @since 05_10_2023
  * @brief Component containing different cards with a table like appearance.
- * @module CardGoodsWebcomponent
+ * @module CardGoodsWebcomp
  */
 
 'use strict';
 
 /**
- * This is one of the inputs for the controller; what the user specifies in the
- * html component goes to the controller which knows what to call in the model.
- */
-
-/**
  * Component containing different cards with a table like appearance.
  */
-export default class CardGoods extends HTMLElement {
+export default class CardGoodsWebcomp extends HTMLElement {
   /** @static */
-  static observedAttributes = ['length', 'width', 'height'];
+  static observedAttributes = ['width', 'height'];
+
+  /** @private @constant */
+  #shadow = undefined;
 
   constructor() {
     super();
+    this.#shadow = this.attachShadow({mode: 'closed'});
     console.log('WebComponent CardGoods created.');
+  }
+
+  getShadow() {
+    return this.#shadow;
   }
 
   connectedCallback() {
@@ -34,12 +37,16 @@ export default class CardGoods extends HTMLElement {
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('Changed attribute ' + attributeName);
-    if (attributeName === 'length') {
-      
-    } else if (attributeName === 'width') {
-      
-    } else if (attributeName === 'height') {
-      
+    if (attributeName === 'width' || attributeName === 'height') {
+      const event = new CustomEvent('attributeChanged', {
+        detail: {
+          attributeName,
+          oldValue,
+          newValue,
+        }
+      });
+      this.dispatchEvent(event);
+      console.log('Dispatched attribute changed event with side info');
     }
   }
 }
