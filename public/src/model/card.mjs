@@ -7,7 +7,11 @@
 export default class Card {
   /** @private */
   #data = undefined;
-  constructor() {}
+
+  constructor() {
+    this.#data = {};
+  }
+
   addData(key, value) {
     this.#data[key] = value;
   }
