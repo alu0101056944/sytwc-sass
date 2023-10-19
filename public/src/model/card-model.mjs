@@ -4,7 +4,7 @@
  * @desc A card with a map of string information.
  */
 
-export default class Card {
+export default class CardModel {
   /** @private */
   #data = undefined;
 
