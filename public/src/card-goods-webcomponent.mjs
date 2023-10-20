@@ -7,6 +7,8 @@
 
 'use strict';
 
+import CardGoodsController from "./controller/card-goods-controller.mjs";
+
 /**
  * Component containing different cards with a table like appearance.
  */
@@ -16,15 +18,13 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
   /** @private @constant */
   #shadow = undefined;
+  #controller = undefined;
 
   constructor() {
     super();
-    this.#shadow = this.attachShadow({mode: 'closed'});
+    this.#shadow = this.attachShadow({ mode: 'closed' });
+    this.#controller = new CardGoodsController(this.#shadow);
     console.log('WebComponent CardGoods created.');
-  }
-
-  getShadow() {
-    return this.#shadow;
   }
 
   connectedCallback() {
@@ -38,15 +38,7 @@ export default class CardGoodsWebcomp extends HTMLElement {
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('Changed attribute ' + attributeName);
     if (attributeName === 'width' || attributeName === 'height') {
-      const event = new CustomEvent('attributeChanged', {
-        detail: {
-          attributeName,
-          oldValue,
-          newValue,
-        }
-      });
-      this.dispatchEvent(event);
-      console.log('Dispatched attribute changed event with side info');
+      this.#controller.updateGeometry(attributeName, newValue);
     }
   }
 }

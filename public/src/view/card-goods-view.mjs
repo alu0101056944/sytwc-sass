@@ -26,9 +26,9 @@ export default class CardGoodsView {
     this.#cardWidth = 200;
     this.#cardHeight = 25;
     const content = document
-                      .getElementById('card-goods-template')
-                      .content
-                      .cloneNode(true);
+                        .getElementById('card-goods-template')
+                        .content
+                        .cloneNode(true);
     this.#parent.append(content);
   }
 
