@@ -32,6 +32,14 @@ export default class CardGoodsView {
         .getElementById('card-goods-template')
         .content
         .cloneNode(true);
+    const cssLinkerNode = document.createElement('link');
+    cssLinkerNode.setAttribute('rel', 'preload');
+    cssLinkerNode.setAttribute('href', 'styles/components/card-goods.css');
+    cssLinkerNode.setAttribute('as', 'style');
+    cssLinkerNode.addEventListener('load', () => {
+      console.log('CardGoodsView css style loaded.');
+    });
+    this.#parent.append(cssLinkerNode);
     this.#parent.append(content);
   }
 
