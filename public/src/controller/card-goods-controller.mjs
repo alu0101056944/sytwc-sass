@@ -28,9 +28,9 @@ export default class CardGoodsController {
   }
 
   updateGeometry(sideName, newValue) {
-    if (sideName === 'width') {
+    if (sideName === 'cardWidth') {
       this.#view.updateCardWidth(newValue);
-    } else if (sideName === 'height') {
+    } else if (sideName === 'cardHeight') {
       this.#view.updateCardHeight(newValue);
     }
   }
