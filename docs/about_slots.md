@@ -8,3 +8,7 @@
  - The browser monitors slot assignments, and inmediatly updates the rendering.
  - There is a `slotchange` event that can be used when a slot has been assigned.
  - A slot element allows checking which DOM elements it has assigned and another deeper version. The `assignedElements()` and the `assignedNodes()` methods.
+
+## On utility
+
+Because the shadow root is closed, there is full independency in the css/html part of the webcomponent. However, a slot allows the users of the webcomponent to embbed html elements with their own css and html, probably coming from the light root. It can be useful then for allowing spaces inside the webcomponent for the client to insert anything it wants, and in the case of this assignemnt I could allow space for a user scoring web component.

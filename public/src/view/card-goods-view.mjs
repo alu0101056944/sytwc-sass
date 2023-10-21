@@ -21,14 +21,17 @@ export default class CardGoodsView {
   #cardHeight = undefined;
   #cardWidth = undefined;
 
+  // meter el estilo de los ejemplos aquí.
+  // permitir una parte baja en cada carta, que sea un slot.
+
   constructor(parent) {
     this.#parent = parent;
     this.#cardWidth = 200;
     this.#cardHeight = 25;
     const content = document
-                        .getElementById('card-goods-template')
-                        .content
-                        .cloneNode(true);
+        .getElementById('card-goods-template')
+        .content
+        .cloneNode(true);
     this.#parent.append(content);
   }
 
