@@ -12,8 +12,9 @@
     padding: 5px 5px 5px 5px;
     border: 1px solid dimgray;
     border-radius: 20px; }
+    .examples .example .card-main {
+      height: 80%; }
     .examples .example .card-foot {
-      height: 20%;
-      background-color: yellow; }
+      height: 20%; }
 
 /*# sourceMappingURL=card-goods.css.map */
