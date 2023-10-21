@@ -21,7 +21,6 @@ export default class CardGoodsView {
   #cardHeight = undefined;
   #cardWidth = undefined;
 
-  // meter el estilo de los ejemplos aquí.
   // permitir una parte baja en cada carta, que sea un slot.
 
   constructor(parent) {
