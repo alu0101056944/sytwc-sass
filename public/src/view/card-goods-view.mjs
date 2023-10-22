@@ -58,7 +58,8 @@ export default class CardGoodsView {
 
   updateLength(newLength) {
     if (newLength > this.#cards.length) {
-      for (let i = 0; i < newLength - this.#cards.length; i++) {
+      const INITIAL_CARD_LENGTH = this.#cards.length;
+      for (let i = 0; i < newLength - INITIAL_CARD_LENGTH; i++) {
         const newCard = this.#cardSample.cloneNode(true);
         const newCardsMainPart = newCard.querySelector('.card-main');
         const newCardView = new CardView(newCardsMainPart);

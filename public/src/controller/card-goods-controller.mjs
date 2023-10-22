@@ -36,6 +36,11 @@ export default class CardGoodsController {
   }
 
   setLength(newLength) {
-    this.#view.updateLength(newLength);
+    if (/\d+/.test(newLength)) {
+      const numericValue = parseInt(newLength.match(/\d+/g)[0]);
+      this.#view.updateLength(numericValue);
+    } else {
+      throw new Error('newLength does not contain a number. CardGoods webcomp.');
+    }
   }
 }
