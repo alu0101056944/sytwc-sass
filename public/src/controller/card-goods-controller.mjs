@@ -34,4 +34,8 @@ export default class CardGoodsController {
       this.#view.updateCardHeight(newValue);
     }
   }
+
+  setLength(newLength) {
+    this.#view.updateLength(newLength);
+  }
 }
