@@ -24,6 +24,7 @@ export default class CardGoodsView {
   
   /** @private */
   #cards = undefined;
+  #cardsViews = undefined;
   #cardHeight = undefined;
   #cardWidth = undefined;
 
@@ -31,6 +32,7 @@ export default class CardGoodsView {
 
   constructor(parent) {
     this.#cards = [];
+    this.#cardsViews = [];
     this.#parent = parent;
     this.#cardWidth = 200;
     this.#cardHeight = 25;
@@ -56,14 +58,32 @@ export default class CardGoodsView {
     this.#content.querySelectorAll('.example').forEach((e) => e.remove());
   }
 
+  /**
+   * 
+   * @param {object} textsOfSpansPerCard array of objets for each card. 
+   * @pre textsOfSpansPerCard.length === this.#cardsViews.length
+   */
+  updateTextOfCards(textsOfSpansPerCard) {
+    if (textsOfSpansPerCard.length !== this.#cardsViews.length) {
+      throw new Error('parameter array and internal array lengths are different' + 
+          'at CardGoodsview.updateTextOfCards() method.');
+    }
+    for (let i = textsOfSpansPerCard.length - 1; i >= 0; i--) {
+      for (spanName of Object.getOwnPropertyNames(textsOfSpansPerCard)) {
+        this.#cardsViews[`setTextOf${spanName}`](textsOfSpansPerCard[spanName]);
+      }
+    }
+  }
+
   updateLength(newLength) {
     if (newLength > this.#cards.length) {
       const INITIAL_CARD_LENGTH = this.#cards.length;
       for (let i = 0; i < newLength - INITIAL_CARD_LENGTH; i++) {
         const newCard = this.#cardSample.cloneNode(true);
         const newCardsMainPart = newCard.querySelector('.card-main');
-        const newCardView = new CardView(newCardsMainPart);
         this.#cards.push(newCard);
+        const newCardView = new CardView(newCardsMainPart);
+        this.#cardsViews.push(newCardView);
         const slotOfNewCard = newCard.querySelector('slot');
         slotOfNewCard.name = `card-foot-space-${this.#cards.length + 1}`;
         this.#cardsParentDiv.append(newCard);
@@ -71,6 +91,7 @@ export default class CardGoodsView {
     } else if (newLength < this.#cards.length) {
       while (newLength < this.#cards.length) {
         this.#cards.pop().remove();
+        this.#cardsViews.pop();
       }
     }
   }
