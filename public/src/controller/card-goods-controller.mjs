@@ -9,6 +9,7 @@
 
 import CardGoodsModel from "../model/card-goods-model.mjs";
 import CardGoodsView from "../view/card-goods-view.mjs";
+import CardView from "../view/card-view.mjs";
 
 /**
  * Make the REST API requests to fill the data the viewer needs.
@@ -29,6 +30,13 @@ export default class CardGoodsController {
       (async () => {
         const response = await fetch('assets/bienes.json');
         const json = await response.json();
+        for (let i = 0; i < json.bienes.length; i++) {
+          for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
+            if (CardView.acceptedKeys.indexOf(key) === -1) {
+              delete json.bienes[i][key];
+            }
+          }
+        }
         this.#view.updateCardContents(json);
       })();
     });

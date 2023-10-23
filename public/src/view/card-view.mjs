@@ -8,6 +8,9 @@
 'use strict';
 
 export default class CardView {
+  /** @static */
+  static acceptedKeys = ['nombre', 'antecedentes', 'tipo', 'localizacion'];
+
   /** @private @constant */
   #spanElements = {};
 
@@ -16,7 +19,7 @@ export default class CardView {
    * @param {object} parent DOM node
    */
   constructor(parent) {
-    ['nombre', 'antecedentes', 'tipo', 'localizacion'].forEach((e) => {
+    CardView.acceptedKeys.forEach((e) => {
       this.#spanElements[e] = document.createElement('span');
       parent.append(this.#spanElements[e]);
       const PART_OF_METHOD_CALL = e[0].toUpperCase() + e.slice(1);
@@ -40,7 +43,7 @@ export default class CardView {
 
   clear() {
     for (const spanName of Object.getOwnPropertyNames(this.#spanElements)) {
-      delete this.#spanElements[spanName];
+      this.#spanElements[spanName].textContent = '';
     }
   }
 }
