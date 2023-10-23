@@ -108,8 +108,8 @@ export default class CardGoodsView {
    * start.
    */
   transferAllTextsOfCards() {
-    for (let i = 0; i < this.#cards.length - 1; i++) {
-      this.transferTextsOfCard(i, i + 1);
+    for (let i = this.#cards.length - 1; i > 0; i--) {
+      this.transferTextsOfCard(i - 1, i);
     }
     this.#cardsViews[0].clear();
   }
