@@ -25,7 +25,12 @@ export default class CardGoodsController {
   constructor(parent) {
     this.#model = new CardGoodsModel();
     this.#view = new CardGoodsView(parent);
-    
+    (async () => {
+      await Promise.new((resolve) => setTimeout(() => resolve(), 1000));
+      const response = await fetch('assets/bienes.json');
+      const json = await response.json();
+      this.#view.updateCardContents(json);
+    })();
   }
 
   updateGeometry(sideName, newValue) {

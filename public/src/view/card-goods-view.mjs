@@ -27,10 +27,14 @@ export default class CardGoodsView {
   #cardsViews = undefined;
   #cardHeight = undefined;
   #cardWidth = undefined;
+  #allCardsFilled = undefined;
+  #amountOfCardsFilled = undefined;
 
   // permitir una parte baja en cada carta, que sea un slot.
 
   constructor(parent) {
+    this.#allCardsFilled = false;
+    this.#amountOfCardsFilled = 0;
     this.#cards = [];
     this.#cardsViews = [];
     this.#parent = parent;
@@ -96,6 +100,25 @@ export default class CardGoodsView {
    */
   transferTextsOfCard(indexA, indexB) {
     this.#cardsViews[indexA].transferDataTo(this.#cardsViews[indexB]);
+  }
+
+  /**
+   * Push a card content into 0 index per array element in bienes property.
+   * @param {object} spansInfoPerCard contains a single property that is an
+   *  array where each element is an object with the information to put
+   *  into the different spans.
+   */
+  updateCardContents(spansInfoPerCard) {
+    const array = spansInfoPerCard.bienes;
+    array.forEach(spansInfo => {
+      if (this.#amountOfCardsFilled < this.#cards.length) {
+
+        this.#amountOfCardsFilled++;
+      } else {
+        
+      }
+
+    });
   }
 
   updateLength(newLength) {
