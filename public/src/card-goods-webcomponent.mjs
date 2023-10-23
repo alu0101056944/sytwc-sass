@@ -14,7 +14,7 @@ import CardGoodsController from "./controller/card-goods-controller.mjs";
  */
 export default class CardGoodsWebcomp extends HTMLElement {
   /** @static */
-  static observedAttributes = ["cardwidth", "cardheight", "length"];
+  static observedAttributes = ["length", "cardwidth", "cardheight"];
 
   /** @private @constant */
   #shadow = undefined;
@@ -39,6 +39,7 @@ export default class CardGoodsWebcomp extends HTMLElement {
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('Changed attribute ' + attributeName);
     if (attributeName === 'cardwidth' || attributeName === 'cardheight') {
+      this.#controller.setLength(newValue);
       this.#controller.updateGeometry(attributeName, newValue);
     } else if (attributeName === 'length') {
       this.#controller.setLength(newValue);
