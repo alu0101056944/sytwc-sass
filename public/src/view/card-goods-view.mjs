@@ -103,21 +103,31 @@ export default class CardGoodsView {
   }
 
   /**
+   * Push one card position to the next to make space for a new card,
+   * do it for all the cards so that there is one free space at the
+   * start.
+   */
+  transferAllTextsOfCards() {
+    for (let i = 0; i < this.#cards.length - 1; i++) {
+      this.transferTextsOfCard(i, i + 1);
+    }
+    this.#cardsViews[0].clear();
+  }
+
+  /**
    * Push a card content into 0 index per array element in bienes property.
    * @param {object} spansInfoPerCard contains a single property that is an
    *  array where each element is an object with the information to put
    *  into the different spans.
    */
   updateCardContents(spansInfoPerCard) {
-    const array = spansInfoPerCard.bienes;
-    array.forEach(spansInfo => {
-      if (this.#amountOfCardsFilled < this.#cards.length) {
-
-        this.#amountOfCardsFilled++;
-      } else {
-        
+    const array = spansInfoPerCard.bienes
+    array.forEach((spansInfo, index) => {
+      this.transferAllTextsOfCards();
+      for (const spanName of Object.getOwnPropertyNames(spansInfo[index])) {
+        const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
+        this.#cardsViews[0][`setTextOf${partOfMethodCall}`](spansInfo[index][spanName]);
       }
-
     });
   }
 

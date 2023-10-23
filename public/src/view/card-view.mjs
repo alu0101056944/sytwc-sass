@@ -36,4 +36,10 @@ export default class CardView {
       other[`setTextOf${partOfMethodCall}`](this.#spanElements[spanName]);
     }
   }
+
+  clear() {
+    for (const spanName of Object.getOwnPropertyNames(this.#spanElements)) {
+      delete this.#spanElements[spanName];
+    }
+  }
 }
