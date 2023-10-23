@@ -30,6 +30,8 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
+    const finishedSetup = new CustomEvent('finishedsetupwebcomp');
+    document.dispatchEvent(finishedSetup);
   }
 
   disconnectedCallback() {

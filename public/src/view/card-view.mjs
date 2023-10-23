@@ -16,15 +16,16 @@ export default class CardView {
    * @param {object} parent DOM node
    */
   constructor(parent) {
-    ['name', 'background', 'type', 'era'].forEach((e) => {
+    ['nombre', 'antecedentes', 'tipo', 'localizacion'].forEach((e) => {
       this.#spanElements[e] = document.createElement('span');
       parent.append(this.#spanElements[e]);
+      const PART_OF_METHOD_CALL = e[0].toUpperCase() + e.slice(1);
 
       // create setters on runtime
-      this[`setTextOf${e[0].toUpperCase() + e.slice(1)}`] = (newValue) => {
+      this[`setTextOf${PART_OF_METHOD_CALL}`] = (newValue) => {
         this.#spanElements[e].textContent = newValue;
       }
-      this[`getTextOf${e[0].toUpperCase() + e.slice(1)}`] = () => {
+      this[`getTextOf${PART_OF_METHOD_CALL}`] = () => {
         this.#spanElements[e].textContent = newValue;
       }
     });

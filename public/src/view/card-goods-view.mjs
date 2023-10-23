@@ -121,12 +121,12 @@ export default class CardGoodsView {
    *  into the different spans.
    */
   updateCardContents(spansInfoPerCard) {
-    const array = spansInfoPerCard.bienes
-    array.forEach((spansInfo, index) => {
+    const array = spansInfoPerCard.bienes;
+    array.forEach((spansInfo) => {
       this.transferAllTextsOfCards();
-      for (const spanName of Object.getOwnPropertyNames(spansInfo[index])) {
-        const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
-        this.#cardsViews[0][`setTextOf${partOfMethodCall}`](spansInfo[index][spanName]);
+      for (const spanName of Object.getOwnPropertyNames(spansInfo)) {
+        const PART_OF_METHOD_CALL = spanName[0].toUpperCase() + spanName.slice(1);
+        this.#cardsViews[0][`setTextOf${PART_OF_METHOD_CALL}`](spansInfo[spanName]);
       }
     });
   }
