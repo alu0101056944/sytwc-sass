@@ -69,10 +69,33 @@ export default class CardGoodsView {
           'at CardGoodsview.updateTextOfCards() method.');
     }
     for (let i = textsOfSpansPerCard.length - 1; i >= 0; i--) {
-      for (spanName of Object.getOwnPropertyNames(textsOfSpansPerCard)) {
-        this.#cardsViews[`setTextOf${spanName}`](textsOfSpansPerCard[spanName]);
+      for (let spanName of Object.getOwnPropertyNames(textsOfSpansPerCard)) {
+        const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
+        this.#cardsViews[`setTextOf${partOfMethodCall}`](textsOfSpansPerCard[spanName]);
       }
     }
+  }
+
+  /**
+   * @param {object} spansTexts each property is a span name in a card, and the
+   *    value is the text for that span.
+   * @param {number} index index of the card view object stored in this class..
+   */
+  updateTextOfCard(spansTexts, index) {
+    for (let spanName of Object.getOwnPropertyNames(spansTexts)) {
+      const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
+      this.#cardsViews[index][`setTextOf${partOfMethodCall}`](spansTexts[spanName]);
+    }
+  }
+
+  /**
+   * I want the controller to be able to emulate a "pushed in" card, so
+   * it needs to be able to pass content of one card to the next card.
+   * @param {number} indexA origin card view object in this class
+   * @param {number} indexB destination card view object in this class
+   */
+  transferTextsOfCard(indexA, indexB) {
+    this.#cardsViews[indexA].transferDataTo(this.#cardsViews[indexB]);
   }
 
   updateLength(newLength) {

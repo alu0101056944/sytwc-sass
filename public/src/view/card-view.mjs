@@ -24,6 +24,16 @@ export default class CardView {
       this[`setTextOf${e[0].toUpperCase() + e.slice(1)}`] = (newValue) => {
         this.#spanElements[e].textContent = newValue;
       }
+      this[`getTextOf${e[0].toUpperCase() + e.slice(1)}`] = () => {
+        this.#spanElements[e].textContent = newValue;
+      }
     });
+  }
+
+  transferDataTo(other) {
+    for (let spanName of Object.getOwnPropertyNames(this.#spanElements)) {
+      const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
+      other[`setTextOf${partOfMethodCall}`](this.#spanElements[spanName]);
+    }
   }
 }
