@@ -44,7 +44,6 @@ export default class CardGoodsController {
             }
           }
         }
-
         this.#view.updateCardContents(json);
       })();
     });
