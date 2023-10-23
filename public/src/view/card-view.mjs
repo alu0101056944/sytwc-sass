@@ -20,7 +20,7 @@ export default class CardView {
    */
   constructor(parent) {
     CardView.acceptedKeys.forEach((e) => {
-      this.#spanElements[e] = document.createElement('span');
+      this.#spanElements[e] = document.createElement('p');
       parent.append(this.#spanElements[e]);
       const PART_OF_METHOD_CALL = e[0].toUpperCase() + e.slice(1);
 
@@ -29,7 +29,7 @@ export default class CardView {
         this.#spanElements[e].textContent = newValue;
       }
       this[`getTextOf${PART_OF_METHOD_CALL}`] = () => {
-        this.#spanElements[e].textContent = newValue;
+        return this.#spanElements[e].textContent;
       }
     });
   }
@@ -37,7 +37,7 @@ export default class CardView {
   transferDataTo(other) {
     for (let spanName of Object.getOwnPropertyNames(this.#spanElements)) {
       const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
-      other[`setTextOf${partOfMethodCall}`](this.#spanElements[spanName]);
+      other[`setTextOf${partOfMethodCall}`](this.#spanElements[spanName].textContent);
     }
   }
 
