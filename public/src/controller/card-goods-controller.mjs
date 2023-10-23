@@ -35,8 +35,16 @@ export default class CardGoodsController {
             if (CardView.acceptedKeys.indexOf(key) === -1) {
               delete json.bienes[i][key];
             }
+            if (key === 'localizacion') {
+              json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
+                  `, long: ${json.bienes[i][key].long}`;
+            } else if (key === 'tipo') {
+              json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
+                  `, épica: ${json.bienes[i][key]['época']}`;
+            }
           }
         }
+
         this.#view.updateCardContents(json);
       })();
     });
