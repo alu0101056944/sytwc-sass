@@ -25,15 +25,15 @@ export default class ScoreWebcomp extends HTMLElement {
     this.length = 6;
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new ScoreController(this.#shadow);
-    console.log('WebComponent CardGoods created.');
+    console.log('WebComponent Score created.');
   }
 
   connectedCallback() {
-    console.log('WebComponent CardGoods connected.');
+    console.log('WebComponent Score connected.');
   }
 
   disconnectedCallback() {
-    console.log('WebComponent CardGoods disconnected.');
+    console.log('WebComponent Score disconnected.');
   }
 
   attributeChangedCallback(attributeName, oldValue, newValue) {

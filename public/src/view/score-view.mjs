@@ -25,8 +25,8 @@ export default class ScoreView {
       console.log('ScoreView css style loaded.');
     });
     parent.append(cssLinkerNode);
-    this.#scoreNode = document.createElement('p');
-    p.textContent = '0';
+    this.#scoreNode = document.createElement('span');
+    this.#scoreNode.textContent = '0';
     parent.append(this.#scoreNode);
     const likeButton = document.createElement('button');
     likeButton.textContent = 'Like';
@@ -37,7 +37,7 @@ export default class ScoreView {
     const dislikeButton = document.createElement('button');
     dislikeButton.textContent = 'Dislike';
     dislikeButton.addEventListener('click', function() {
-      if (container.getScore() > 0) {
+      if (containerObject.getScore() > 0) {
         containerObject.setScore(containerObject.getScore() - 1);
       }
     });
@@ -46,7 +46,7 @@ export default class ScoreView {
 
   setScore(newScore) {
     this.#score = newScore;
-    this.#scoreNode.textContent = this.#score;
+    this.#scoreNode.textContent = parseInt(this.#score);
   }
 
   getScore() {
