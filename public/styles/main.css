@@ -1,7 +1,21 @@
 body {
   background-color: darkgray;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  font-family: Arial, Helvetica, sans-serif; }
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px 3px 2px 3px;
+  margin: 10px 3px 5px 3px; }
+  .examples .example {
+    background-color: IndianRed;
+    width: 90px;
+    height: 130px;
+    margin: 8px 8px 8px 8px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid dimgray;
+    border-radius: 20px; }
 
 .base {
   display: flex;
@@ -11,209 +25,150 @@ body {
   width: 50%;
   background-color: lightgray;
   width: 800px;
-  border: 1px solid DimGray;
-}
-.base header {
-  width: 800px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.base header .icondiv {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-  height: 55px;
-  background-color: mediumorchid;
-  width: 24%;
-  height: 60px;
-  justify-content: flex-start;
-  margin-right: 30px;
-  margin-top: 15px;
-  border: 1px solid dimgray;
-}
-.base header .icondiv span {
-  margin-left: 8px;
-}
-.base header .namediv {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-  height: 55px;
-  width: 66%;
-  height: 60px;
-  align-items: flex-start;
-  margin-top: 15px;
-}
-.base header .namediv h2 {
-  text-align: center;
-  margin: 15px 0px 15px 0px;
-  padding: 3px 0px 3px 0;
-}
-.base header nav {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-  height: 55px;
-}
-.base main {
-  width: 800px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.base main .content {
-  width: 495px;
-  margin: 3px, 3px, 3px, 3px;
-}
-.base main .content .feature {
-  width: 495px;
-  margin: 3px, 0, 3px, 0;
-}
-.base main .content .feature {
-  background-color: MediumOrchid;
-}
-.base main .content .feature h2 {
-  text-align: center;
-  margin: 15px 0px 15px 0px;
-  padding: 3px 0px 3px 0;
-}
-.base main .content .feature .examples {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 10px 3px 2px 3px;
-  margin: 10px 3px 5px 3px;
-}
-.base main .content .feature .examples .example {
-  background-color: IndianRed;
-  width: 90px;
-  height: 130px;
-  margin: 8px 8px 8px 8px;
-  padding: 5px 5px 5px 5px;
-  border: 1px solid dimgray;
-  border-radius: 20px;
-}
-.base main .sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 255px;
-  margin: 3px, 7px, 3px, 0px;
-  padding: 5px 10px 5px 10px;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-}
-.base main .sidebar .formdiv {
-  width: 100%;
-  margin: 11px 6px 3px 6px;
-  padding: 3px 3px 3px 3px;
-}
-.base main .sidebar .formdiv {
-  background-color: hotpink;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-}
-.base main .sidebar .formdiv form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-}
-.base main .sidebar .formdiv form .row {
-  margin: 5px 5px 5px 5px;
-  padding: 3px 0 3px 0;
-}
-.base main .sidebar .formdiv form input[type=button] {
-  width: 25%;
-  align-self: center;
-}
-.base main .sidebar .formdiv form input[type=button]:hover {
-  background-color: lightgray;
-  border-radius: 4px;
-  border: 1px solid darkgray;
-}
-.base main .sidebar .formdiv form input[type=text]:hover {
-  background-color: lightgray;
-  border-radius: 4px;
-  border: 1px solid darkgray;
-}
-.base main .sidebar .formdiv form input[type=email]:hover {
-  background-color: lightgray;
-  border-radius: 4px;
-  border: 1px solid darkgray;
-}
-.base main .sidebar .contactdiv {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-  height: 55px;
-}
-.base footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  margin: 5px 0px 5px 0px;
-}
-.base footer .garantydiv, .base footer .feature {
-  margin: 5px 5px 5px 5px;
-  padding: 5px 5px 5px 5px;
-}
-.base footer .feature {
-  background-color: MediumOrchid;
-}
-.base footer .feature h5 {
-  text-align: center;
-  margin: 3px 0px 3px 0px;
-  padding: 3px 0px 3px 0;
-}
-.base footer .feature .examples {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 10px 3px 2px 3px;
-  margin: 10px 3px 5px 3px;
-}
-.base footer .feature .examples .example {
-  background-color: IndianRed;
-  width: 90px;
-  height: 130px;
-  margin: 8px 8px 8px 8px;
-  padding: 5px 5px 5px 5px;
-  border: 1px solid dimgray;
-  border-radius: 20px;
-}
-.base footer .garantydiv {
-  background-color: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 3px 5px 3px 5px;
-  padding: 3px 5px 3px 5px;
-  height: 55px;
-  width: 97%;
-}
+  border: 1px solid DimGray; }
+  .base header {
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+    .base header .icondiv {
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 3px 5px 3px 5px;
+      padding: 3px 5px 3px 5px;
+      height: 55px;
+      background-color: mediumorchid;
+      width: 24%;
+      height: 60px;
+      justify-content: flex-start;
+      margin-right: 30px;
+      margin-top: 15px;
+      border: 1px solid dimgray; }
+      .base header .icondiv span {
+        margin-left: 8px; }
+    .base header .namediv {
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 3px 5px 3px 5px;
+      padding: 3px 5px 3px 5px;
+      height: 55px;
+      width: 66%;
+      height: 60px;
+      align-items: flex-start;
+      margin-top: 15px; }
+      .base header .namediv h2 {
+        text-align: center;
+        margin: 15px 0px 15px 0px;
+        padding: 3px 0px 3px 0; }
+    .base header nav {
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 3px 5px 3px 5px;
+      padding: 3px 5px 3px 5px;
+      height: 55px; }
+  .base main {
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+    .base main .content {
+      width: 495px;
+      margin: 3px, 3px, 3px, 3px; }
+      .base main .content .feature {
+        width: 495px;
+        margin: 3px, 0, 3px, 0; }
+      .base main .content .feature {
+        background-color: MediumOrchid; }
+        .base main .content .feature h2 {
+          text-align: center;
+          margin: 15px 0px 15px 0px;
+          padding: 3px 0px 3px 0; }
+    .base main .sidebar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 255px;
+      margin: 3px, 7px, 3px, 0px;
+      padding: 5px 10px 5px 10px;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center; }
+      .base main .sidebar .formdiv {
+        width: 100%;
+        margin: 11px 6px 3px 6px;
+        padding: 3px 3px 3px 3px; }
+      .base main .sidebar .formdiv {
+        background-color: hotpink;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column; }
+        .base main .sidebar .formdiv form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-content: center; }
+          .base main .sidebar .formdiv form .row {
+            margin: 5px 5px 5px 5px;
+            padding: 3px 0 3px 0; }
+          .base main .sidebar .formdiv form input[type="button"] {
+            width: 25%;
+            align-self: center; }
+          .base main .sidebar .formdiv form input[type="button"]:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            border: 1px solid darkgray; }
+          .base main .sidebar .formdiv form input[type="text"]:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            border: 1px solid darkgray; }
+          .base main .sidebar .formdiv form input[type="email"]:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            border: 1px solid darkgray; }
+      .base main .sidebar .contactdiv {
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 3px 5px 3px 5px;
+        padding: 3px 5px 3px 5px;
+        height: 55px; }
+  .base footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 5px 0px 5px 0px; }
+    .base footer .feature, .base footer .garantydiv {
+      margin: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 5px; }
+    .base footer .feature {
+      background-color: MediumOrchid; }
+      .base footer .feature h5 {
+        text-align: center;
+        margin: 3px 0px 3px 0px;
+        padding: 3px 0px 3px 0; }
+    .base footer .garantydiv {
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 3px 5px 3px 5px;
+      padding: 3px 5px 3px 5px;
+      height: 55px;
+      width: 97%; }
 
 /*# sourceMappingURL=main.css.map */
