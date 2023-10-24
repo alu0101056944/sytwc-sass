@@ -26,10 +26,6 @@ export default class CardGoodsController {
   constructor(parent) {
     this.#model = new CardGoodsModel();
     this.#view = new CardGoodsView(parent);
-    document.addEventListener('finishedsetupwebcomp', (event) => {
-      event.stopPropagation();
-      
-    });
   }
 
   updateGeometry(sideName, newValue) {
