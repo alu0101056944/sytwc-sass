@@ -26,26 +26,9 @@ export default class CardGoodsController {
   constructor(parent) {
     this.#model = new CardGoodsModel();
     this.#view = new CardGoodsView(parent);
-    document.addEventListener('finishedsetupwebcomp', () => {
-      (async () => {
-        const response = await fetch('assets/bienes.json');
-        const json = await response.json();
-        for (let i = 0; i < json.bienes.length; i++) {
-          for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
-            if (CardView.acceptedKeys.indexOf(key) === -1) {
-              delete json.bienes[i][key];
-            }
-            if (key === 'localizacion') {
-              json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
-                  `, long: ${json.bienes[i][key].long}`;
-            } else if (key === 'tipo') {
-              json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
-                  `, épica: ${json.bienes[i][key]['época']}`;
-            }
-          }
-        }
-        this.#view.updateCardContents(json);
-      })();
+    document.addEventListener('finishedsetupwebcomp', (event) => {
+      event.stopPropagation();
+      
     });
   }
 
@@ -64,5 +47,25 @@ export default class CardGoodsController {
     } else {
       throw new Error('newLength does not contain a number. CardGoods webcomp.');
     }
+  }
+
+  async requestAPIInfo() {
+    const response = await fetch('assets/bienes.json');
+    const json = await response.json();
+    for (let i = 0; i < json.bienes.length; i++) {
+      for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
+        if (CardView.acceptedKeys.indexOf(key) === -1) {
+          delete json.bienes[i][key];
+        }
+        if (key === 'localizacion') {
+          json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
+              `, long: ${json.bienes[i][key].long}`;
+        } else if (key === 'tipo') {
+          json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
+              `, épica: ${json.bienes[i][key]['época']}`;
+        }
+      }
+    }
+    this.#view.updateCardContents(json);
   }
 }

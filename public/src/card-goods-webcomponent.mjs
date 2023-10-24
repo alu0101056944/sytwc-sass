@@ -25,13 +25,13 @@ export default class CardGoodsWebcomp extends HTMLElement {
     this.length = 6;
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new CardGoodsController(this.#shadow);
+    
     console.log('WebComponent CardGoods created.');
   }
 
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
-    const finishedSetup = new CustomEvent('finishedsetupwebcomp');
-    document.dispatchEvent(finishedSetup);
+    this.#controller.requestAPIInfo();
   }
 
   disconnectedCallback() {
