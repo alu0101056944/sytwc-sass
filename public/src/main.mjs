@@ -1,4 +1,4 @@
 // Script to be attached at index.html
 
-import CardGoods from "./card-goods-webcomponent.mjs";
-customElements.define('mb-cardgoods', CardGoods);
+import CardGoodsWebcomp from "./card-goods-webcomponent.mjs";
+customElements.define('mb-cardgoods', CardGoodsWebcomp);

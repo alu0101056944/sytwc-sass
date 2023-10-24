@@ -3,16 +3,22 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 10px 3px 2px 3px;
-  margin: 10px 3px 5px 3px;
-}
-.examples .example {
-  background-color: IndianRed;
-  width: 90px;
-  height: 130px;
-  margin: 8px 8px 8px 8px;
-  padding: 5px 5px 5px 5px;
-  border: 1px solid dimgray;
-  border-radius: 20px;
-}
+  margin: 10px 3px 5px 3px; }
+  .examples .example {
+    background-color: IndianRed;
+    width: 90px;
+    height: 130px;
+    margin: 8px 8px 8px 8px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid dimgray;
+    border-radius: 10px; }
+    .examples .example .card-main {
+      overflow: auto;
+      font-size: 0.8vw;
+      height: 80%;
+      width: 100%; }
+    .examples .example .card-foot {
+      height: 20%;
+      width: 100%; }
 
 /*# sourceMappingURL=card-goods.css.map */
