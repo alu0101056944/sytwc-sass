@@ -26,6 +26,11 @@ export default class CardGoodsController {
   constructor(parent) {
     this.#model = new CardGoodsModel();
     this.#view = new CardGoodsView(parent);
+    document.addEventListener('scoreIncrease', () => {
+      console.log('score increased!');
+      this.#view.update()
+    });
+    document.addEventListener('scoreDecrease', () => this.#view.update());
   }
 
   updateGeometry(sideName, newValue) {
