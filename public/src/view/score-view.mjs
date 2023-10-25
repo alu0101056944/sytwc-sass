@@ -8,9 +8,14 @@
 'use strict';
 
 export default class ScoreView {
+
+  /** @private @constant */
+  #scoreNode = undefined;
+  #likeButton = undefined;
+  #dislikeButton = undefined;
+
   /** @private */
   #score = undefined;
-  #scoreNode = undefined;
 
   /**
    * @param {object} parent DOM node
@@ -28,25 +33,33 @@ export default class ScoreView {
     this.#scoreNode = document.createElement('span');
     this.#scoreNode.textContent = '0';
     parent.append(this.#scoreNode);
-    const likeButton = document.createElement('button');
-    likeButton.textContent = 'Like';
-    likeButton.addEventListener('click', function() {
+    this.#likeButton = document.createElement('button');
+    this.#likeButton.textContent = 'Like';
+    this.#likeButton.addEventListener('click', function(event) {
+      event.stopImmediatePropagation();
       containerObject.setScore(containerObject.getScore() + 1);
     });
-    parent.append(likeButton);
-    const dislikeButton = document.createElement('button');
-    dislikeButton.textContent = 'Dislike';
-    dislikeButton.addEventListener('click', function() {
-      if (containerObject.getScore() > 0) {
-        containerObject.setScore(containerObject.getScore() - 1);
-      }
+    parent.append(this.#likeButton);
+    this.#dislikeButton = document.createElement('button');
+    this.#dislikeButton.textContent = 'Dislike';
+    this.#dislikeButton.disabled = true;
+    this.#dislikeButton.addEventListener('click', function(event) {
+      event.stopImmediatePropagation();
+      containerObject.setScore(containerObject.getScore() - 1);
     });
-    parent.append(dislikeButton);
+    parent.append(this.#dislikeButton);
   }
 
   setScore(newScore) {
-    this.#score = newScore;
-    this.#scoreNode.textContent = parseInt(this.#score);
+    if (newScore <= 0) {
+      this.#scoreNode.textContent = newScore;
+      this.#score = 0;
+      this.#dislikeButton.disabled = true;
+    } else {
+      this.#scoreNode.textContent = newScore;
+      this.#score = newScore;
+      this.#dislikeButton.disabled = false;
+    }
   }
 
   getScore() {
