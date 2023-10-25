@@ -26,16 +26,16 @@ export default class CardGoodsWebcomp extends HTMLElement {
     this.length = 6;
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new CardGoodsController(this.#shadow);
-
-    // shadow dom node are never iterated so just do:
-    this.#childrenApartOfShadow = Array.from(this.children);
-    this.#controller.addWebcomponentChildren(this.#childrenApartOfShadow);
     console.log('WebComponent CardGoods created.');
   }
 
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
     // this.#controller.requestAPIInfo();
+
+    // shadow dom node are never iterated so just do:
+    this.#childrenApartOfShadow = Array.from(this.children);
+    this.#controller.addWebcomponentChildren(this.#childrenApartOfShadow);
   }
 
   disconnectedCallback() {

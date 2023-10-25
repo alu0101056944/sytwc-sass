@@ -68,12 +68,16 @@ export default class CardGoodsView {
   pushToPlaceholder(domElement) {
     domElement.removeAttribute('slot');
     for (let i = this.#amountOfPlaceholders - 1; i > 0; i--) {
-      this.#placeholders[i].children.forEach(child => child.remove());
-      this.#placeholders[i - 1].children.forEach(child => {
+      for (let child of this.#placeholders[i].children) {
+        child.remove();
+      }
+      for (let child of this.#placeholders[i - 1].children) {
         this.#placeholders[i].append(child.cloneNode(true));
-      });
+      }
     }
-    this.#placeholders[0].children.forEach(child => child.remove());
+    for (let child of this.#placeholders[0].children) {
+      child.remove();
+    }
     this.#placeholders[0].append(domElement);
     this.#placeholdersContentArray.push(domElement);
   }
