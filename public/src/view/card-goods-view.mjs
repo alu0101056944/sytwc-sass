@@ -27,14 +27,8 @@ export default class CardGoodsView {
   #cardsViews = undefined;
   #cardHeight = undefined;
   #cardWidth = undefined;
-  #allCardsFilled = undefined;
-  #amountOfCardsFilled = undefined;
-
-  // permitir una parte baja en cada carta, que sea un slot.
 
   constructor(parent) {
-    this.#allCardsFilled = false;
-    this.#amountOfCardsFilled = 0;
     this.#cards = [];
     this.#cardsViews = [];
     this.#parent = parent;
