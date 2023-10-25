@@ -45,6 +45,17 @@ export default class CardGoodsController {
     }
   }
 
+  /**
+   * The children of webcomponent that are inserted into a placeholder slot are
+   *  passed to the view for it to manage them.
+   * @param {object} children array of dom nodes
+   */
+  addWebcomponentChildren(children) {
+    const childrenAssignedToSlots = children
+        .filter((child) => child.slot && child.slot.includes('placeholder-slot-'));
+    childrenAssignedToSlots.forEach(child => this.#view.pushToPlaceholder(child));
+  }
+
   // async requestAPIInfo() {
   //   const response = await fetch('assets/bienes.json');
   //   const json = await response.json();
