@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,MAAO;EACL,gBAAgB,EAAE,MAAM",
+"sources": ["score.scss"],
+"names": [],
+"file": "score.css"
+}

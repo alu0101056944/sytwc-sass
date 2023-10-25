@@ -15,7 +15,6 @@ export default class CardView {
   #spanElements = {};
 
   /**
-   * 
    * @param {object} parent DOM node
    */
   constructor(parent) {
