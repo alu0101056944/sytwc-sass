@@ -70,6 +70,9 @@ export default class CardGoodsView {
       const INITIAL_AMOUNT = this.#amountOfPlaceholders;
       for (let i = 0; i < newAmountOfPlaceholders - INITIAL_AMOUNT; i++) {
         const newPlaceholder = this.#placeholderSample.cloneNode(true);
+        const slot = newPlaceholder.querySelector('slot');
+        const INITIAL_PLACEHOLDER_AMOUNT = this.#amountOfPlaceholders;
+        slot.name = `placeholder-slot-${INITIAL_PLACEHOLDER_AMOUNT + 1}`;
         this.#divContainer.append(newPlaceholder);
         this.#amountOfPlaceholders++;
       }
