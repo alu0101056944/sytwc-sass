@@ -19,26 +19,26 @@ export default class CardGoodsView {
   /** @private @constant */
   #parent = undefined;
   #content = undefined;
-  #cardSample = undefined;
-  #cardsParentDiv = undefined;
+  #exampleSample = undefined;
+  #divParent = undefined;
   
   /** @private */
-  #cards = undefined;
-  #cardsViews = undefined;
-  #cardHeight = undefined;
-  #cardWidth = undefined;
+  #divCardMainArray = undefined;
+  #cardViewArray = undefined;
+  #placeholderHeight = undefined;
+  #placeholderWidth = undefined;
 
   constructor(parent) {
-    this.#cards = [];
-    this.#cardsViews = [];
+    this.#divCardMainArray = [];
+    this.#cardViewArray = [];
     this.#parent = parent;
-    this.#cardWidth = 200;
-    this.#cardHeight = 25;
+    this.#placeholderWidth = 200;
+    this.#placeholderHeight = 25;
     this.#content = document
         .getElementById('card-goods-template')
         .content
         .cloneNode(true);
-    this.#cardsParentDiv = this.#content.querySelector('.examples');
+    this.#divParent = this.#content.querySelector('.examples');
     this.#prepareTemplate();
     const cssLinkerNode = document.createElement('link');
     cssLinkerNode.setAttribute('rel', 'stylesheet');
@@ -51,7 +51,7 @@ export default class CardGoodsView {
   }
 
   #prepareTemplate() {
-    this.#cardSample = this.#content.querySelectorAll('.example')[0]
+    this.#exampleSample = this.#content.querySelectorAll('.example')[0]
         .cloneNode(true);
     this.#content.querySelectorAll('.example').forEach((e) => e.remove());
   }
@@ -59,17 +59,17 @@ export default class CardGoodsView {
   /**
    * 
    * @param {object} textsOfSpansPerCard array of objets for each card. 
-   * @pre textsOfSpansPerCard.length === this.#cardsViews.length
+   * @pre textsOfSpansPerCard.length === this.#cardViewArray.length
    */
   updateTextOfCards(textsOfSpansPerCard) {
-    if (textsOfSpansPerCard.length !== this.#cardsViews.length) {
+    if (textsOfSpansPerCard.length !== this.#cardViewArray.length) {
       throw new Error('parameter array and internal array lengths are different' + 
           'at CardGoodsview.updateTextOfCards() method.');
     }
     for (let i = textsOfSpansPerCard.length - 1; i >= 0; i--) {
       for (let spanName of Object.getOwnPropertyNames(textsOfSpansPerCard)) {
         const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
-        this.#cardsViews[`setTextOf${partOfMethodCall}`](textsOfSpansPerCard[spanName]);
+        this.#cardViewArray[`setTextOf${partOfMethodCall}`](textsOfSpansPerCard[spanName]);
       }
     }
   }
@@ -82,7 +82,7 @@ export default class CardGoodsView {
   updateTextOfCard(spansTexts, index) {
     for (let spanName of Object.getOwnPropertyNames(spansTexts)) {
       const partOfMethodCall = spanName[0].toUpperCase() + spanName.slice(1);
-      this.#cardsViews[index][`setTextOf${partOfMethodCall}`](spansTexts[spanName]);
+      this.#cardViewArray[index][`setTextOf${partOfMethodCall}`](spansTexts[spanName]);
     }
   }
 
@@ -93,7 +93,7 @@ export default class CardGoodsView {
    * @param {number} indexB destination card view object in this class
    */
   transferTextsOfCard(indexA, indexB) {
-    this.#cardsViews[indexA].transferDataTo(this.#cardsViews[indexB]);
+    this.#cardViewArray[indexA].transferDataTo(this.#cardViewArray[indexB]);
   }
 
   /**
@@ -102,10 +102,10 @@ export default class CardGoodsView {
    * start.
    */
   transferAllTextsOfCards() {
-    for (let i = this.#cards.length - 1; i > 0; i--) {
+    for (let i = this.#divCardMainArray.length - 1; i > 0; i--) {
       this.transferTextsOfCard(i - 1, i);
     }
-    this.#cardsViews[0].clear();
+    this.#cardViewArray[0].clear();
   }
 
   /**
@@ -120,46 +120,46 @@ export default class CardGoodsView {
       this.transferAllTextsOfCards();
       for (const spanName of Object.getOwnPropertyNames(spansInfo)) {
         const PART_OF_METHOD_CALL = spanName[0].toUpperCase() + spanName.slice(1);
-        this.#cardsViews[0][`setTextOf${PART_OF_METHOD_CALL}`](spansInfo[spanName]);
+        this.#cardViewArray[0][`setTextOf${PART_OF_METHOD_CALL}`](spansInfo[spanName]);
       }
     });
   }
 
   updateLength(newLength) {
-    if (newLength > this.#cards.length) {
-      const INITIAL_CARD_LENGTH = this.#cards.length;
+    if (newLength > this.#divCardMainArray.length) {
+      const INITIAL_CARD_LENGTH = this.#divCardMainArray.length;
       for (let i = 0; i < newLength - INITIAL_CARD_LENGTH; i++) {
-        const newCard = this.#cardSample.cloneNode(true);
+        const newCard = this.#exampleSample.cloneNode(true);
         const newCardsMainPart = newCard.querySelector('.card-main');
-        this.#cards.push(newCard);
+        this.#divCardMainArray.push(newCard);
         const newCardView = new CardView(newCardsMainPart);
-        this.#cardsViews.push(newCardView);
+        this.#cardViewArray.push(newCardView);
         const slotOfNewCard = newCard.querySelector('slot');
-        slotOfNewCard.name = `card-foot-space-${this.#cards.length + 1}`;
-        this.#cardsParentDiv.append(newCard);
+        slotOfNewCard.name = `card-foot-space-${this.#divCardMainArray.length + 1}`;
+        this.#divParent.append(newCard);
       }
-    } else if (newLength < this.#cards.length) {
-      while (newLength < this.#cards.length) {
-        this.#cards.pop().remove();
-        this.#cardsViews.pop();
+    } else if (newLength < this.#divCardMainArray.length) {
+      while (newLength < this.#divCardMainArray.length) {
+        this.#divCardMainArray.pop().remove();
+        this.#cardViewArray.pop();
       }
     }
   }
 
-  updateCardWidth(newWidth) {
-    this.#updateCardGeometry('width', newWidth);
-    this.#cardWidth = newWidth;
+  updatePlaceholderWidth(newWidth) {
+    this.#updatePlaceholderGeometry('width', newWidth);
+    this.#placeholderWidth = newWidth;
   }
 
-  updateCardHeight(newHeight) {
-    this.#updateCardGeometry('height', newHeight);
-    this.#cardHeight = newHeight;
+  updatePlaceholderHeight(newHeight) {
+    this.#updatePlaceholderGeometry('height', newHeight);
+    this.#placeholderHeight = newHeight;
   }
 
   /**
    * @param {string} sideName either width or height
    */
-  #updateCardGeometry(sideName, newValue) {
+  #updatePlaceholderGeometry(sideName, newValue) {
     const exampleArray = this.#parent.querySelectorAll('.example');
     exampleArray.forEach((example) => {
       example.style[sideName] = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
