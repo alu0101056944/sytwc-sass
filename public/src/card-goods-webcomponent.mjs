@@ -35,7 +35,9 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
     // shadow dom node are never iterated so just do:
     this.#childrenApartOfShadow = Array.from(this.children);
-    this.#controller.addWebcomponentChildren(this.#childrenApartOfShadow);
+    document.addEventListener('DOMContentLoaded', () => {
+      this.#controller.addWebcomponentChildren(this.#childrenApartOfShadow)
+    });
   }
 
   disconnectedCallback() {
