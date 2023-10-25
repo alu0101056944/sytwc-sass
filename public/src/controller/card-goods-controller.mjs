@@ -21,7 +21,7 @@ export default class CardGoodsController {
   #view = undefined;
 
   /**
-   * @param {object} parent where the view will get appended
+   * @param {object} parent where the view will get appended to
    */
   constructor(parent) {
     this.#model = new CardGoodsModel();
