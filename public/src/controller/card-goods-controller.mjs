@@ -30,38 +30,38 @@ export default class CardGoodsController {
 
   updateGeometry(sideName, newValue) {
     if (sideName === 'cardwidth') {
-      this.#view.updatePlaceholderWidth(newValue);
+      this.#view.setPlaceholdersWidth(newValue);
     } else if (sideName === 'cardheight') {
-      this.#view.updatePlaceholderHeight(newValue);
+      this.#view.setPlaceholdersHeight(newValue);
     }
   }
 
   setLength(newLength) {
     if (/\d+/.test(newLength)) {
       const numericValue = parseInt(newLength.match(/\d+/g)[0]);
-      this.#view.updateLength(numericValue);
+      this.#view.setAmountOfPlaceholders(numericValue);
     } else {
       throw new Error('newLength does not contain a number. CardGoods webcomp.');
     }
   }
 
-  async requestAPIInfo() {
-    const response = await fetch('assets/bienes.json');
-    const json = await response.json();
-    for (let i = 0; i < json.bienes.length; i++) {
-      for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
-        if (CardView.acceptedKeys.indexOf(key) === -1) {
-          delete json.bienes[i][key];
-        }
-        if (key === 'localizacion') {
-          json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
-              `, long: ${json.bienes[i][key].long}`;
-        } else if (key === 'tipo') {
-          json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
-              `, épica: ${json.bienes[i][key]['época']}`;
-        }
-      }
-    }
-    this.#view.updateCardContents(json);
-  }
+  // async requestAPIInfo() {
+  //   const response = await fetch('assets/bienes.json');
+  //   const json = await response.json();
+  //   for (let i = 0; i < json.bienes.length; i++) {
+  //     for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
+  //       if (CardView.acceptedKeys.indexOf(key) === -1) {
+  //         delete json.bienes[i][key];
+  //       }
+  //       if (key === 'localizacion') {
+  //         json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
+  //             `, long: ${json.bienes[i][key].long}`;
+  //       } else if (key === 'tipo') {
+  //         json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
+  //             `, épica: ${json.bienes[i][key]['época']}`;
+  //       }
+  //     }
+  //   }
+  //   this.#view.updateCardContents(json.bienes);
+  // }
 }

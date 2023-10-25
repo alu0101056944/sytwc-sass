@@ -30,7 +30,7 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
-    this.#controller.requestAPIInfo();
+    // this.#controller.requestAPIInfo();
   }
 
   disconnectedCallback() {
@@ -40,7 +40,6 @@ export default class CardGoodsWebcomp extends HTMLElement {
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('Changed attribute ' + attributeName);
     if (attributeName === 'cardwidth' || attributeName === 'cardheight') {
-      this.#controller.setLength(newValue);
       this.#controller.updateGeometry(attributeName, newValue);
     } else if (attributeName === 'length') {
       this.#controller.setLength(newValue);
