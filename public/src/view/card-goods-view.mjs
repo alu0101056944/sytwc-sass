@@ -79,7 +79,28 @@ export default class CardGoodsView {
       child.remove();
     }
     this.#placeholders[0].append(domElement);
-    this.#placeholdersContentArray.push(domElement);
+  }
+
+  /**
+   * @param {object} infoObject with a domNode property for the element to insert
+   *  and optionally with a scoringObject property that must have a getScore()
+   *  so that it can get sorted by it.
+   */
+  insertContent(infoObject) {
+    this.#placeholdersContentArray.push({
+      domNode: infoObject.domNode,
+      scoringObject: infoObject.scoringObject ?? { getScore: () => 0 },
+    });
+    this.update();
+  }
+
+  update() {
+    this.#placeholdersContentArray.sort((a, b) => {
+      return a.scoringObject.getScore() - b.scoringObject.getScore()
+    });
+    for (let i = 0; i < this.#amountOfPlaceholders; i++) {
+      this.pushToPlaceholder(this.#placeholdersContentArray[i].domNode);
+    }
   }
 
   setAmountOfPlaceholders(newAmountOfPlaceholders) {
