@@ -81,6 +81,8 @@ export default class CardGoodsController {
         }
       }
       const card = new CardWebcomp();
+      card.setAttribute('width', this.#view.getPlaceholdersWidth());
+      card.setAttribute('height', this.#view.getPlaceholdersHeight());
       const score = new ScoreWebcomp();
       card.insertIntoFoot(score);
       card.updateContent(json.bienes[i]);
@@ -89,5 +91,13 @@ export default class CardGoodsController {
         scoringObject: score.getScoringObject(),
       });
     }
+  }
+
+  getPlaceholdersHeight() {
+    return this.#view.getPlaceholdersHeight();
+  }
+
+  getPlaceholderWidth() {
+    return this.#view.getPlaceholdersWidth();
   }
 }

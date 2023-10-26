@@ -14,7 +14,7 @@ import CardController from "./controller/card-controller.mjs";
  */
 export default class CardWebcomp extends HTMLElement {
   /** @static */
-  static observedAttributes = [];
+  static observedAttributes = ['width', 'height'];
 
   /** @private @constant */
   #shadow = undefined;
@@ -26,7 +26,7 @@ export default class CardWebcomp extends HTMLElement {
     this.#controller = new CardController(this.#shadow);
     console.log('WebComponent Card created.');
   }
-  
+
   /**
    * Temporarily hardwired.
    * @todo Implement a score contract in card webcomponents.
@@ -54,5 +54,10 @@ export default class CardWebcomp extends HTMLElement {
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('Changed attribute ' + attributeName);
+    if (attributeName === 'width') {
+      this.#controller.setWidth(newValue);
+    } else if (attributeName === 'height') {
+      this.#controller.setHeight(newValue);
+    }
   }
 }

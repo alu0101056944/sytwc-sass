@@ -141,4 +141,13 @@ export default class CardGoodsView {
       placeeholder.style[sideName] = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
     });
   }
+
+  getPlaceholdersHeight() {
+    return this.#placeholdersHeight;
+  }
+
+  getPlaceholdersWidth() {
+    return this.#placeholdersWidth;
+  }
+
 }

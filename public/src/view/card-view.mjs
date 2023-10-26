@@ -14,6 +14,10 @@ export default class CardView {
   #divMain = undefined;
   #divFoot = undefined;
 
+  /** @private  */
+  #cardHeight = undefined;
+  #cardWidth = undefined;
+
   /** @static */
   static acceptedKeys = ['nombre', 'antecedentes', 'tipo', 'localizacion'];
 
@@ -24,6 +28,8 @@ export default class CardView {
    * @param {object} parent DOM node
    */
   constructor(parent) {
+    this.#cardHeight = 30;
+    this.#cardWidth = 30;
     this.#divContainer = document.createElement('div');
     this.#divContainer.className = 'card';
     this.#divContainer.innerHTML = `
@@ -72,5 +78,22 @@ export default class CardView {
 
   insertIntoFoot(domNode) {
     this.#divFoot.append(domNode);
+  }
+
+  setCardWidth(newWidth) {
+    this.#setCardGeometry('width', newWidth);
+    this.#cardWidth = newWidth;
+  }
+
+  setCardHeight(newHeight) {
+    this.#setCardGeometry('height', newHeight);
+    this.#cardHeight = newHeight;
+  }
+
+  /**
+   * @param {string} sideName either width or height
+   */
+  #setCardGeometry(sideName, newValue) {
+    this.#divContainer.style[sideName] = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
   }
 }

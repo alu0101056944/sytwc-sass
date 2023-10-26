@@ -52,4 +52,12 @@ export default class CardGoodsWebcomp extends HTMLElement {
       this.#controller.setLength(newValue);
     }
   }
+
+  getPlaceholdersHeight() {
+    return this.#controller.getPlaceholdersHeight();
+  }
+
+  getPlaceholderWidth() {
+    return this.#controller.getPlaceholdersWidth();
+  }
 }

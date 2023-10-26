@@ -42,4 +42,12 @@ export default class CardController {
     this.#view.insertIntoFoot(domNode);
   }
 
+  setWidth(newWidth) {
+    this.#view.setCardWidth(newWidth);
+  }
+
+  setHeight(newHeight) {
+    this.#view.setCardHeight(newHeight);
+  }
+
 }
