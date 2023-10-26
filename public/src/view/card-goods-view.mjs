@@ -92,7 +92,6 @@ export default class CardGoodsView {
   }
 
   update() {
-    console.log('update called');
     this.#placeholdersContentArray.sort((a, b) => {
       return a.scoringObject.getScore() - b.scoringObject.getScore()
     });
@@ -110,6 +109,7 @@ export default class CardGoodsView {
         const newPlaceholder = this.#placeholderSample.cloneNode(true);
         this.#placeholders.push(newPlaceholder);
         this.#divContainer.append(newPlaceholder);
+        this.updatePlaceholdersGeometry();
         this.#amountOfPlaceholders++;
       }
     } else if (newAmountOfPlaceholders < this.#amountOfPlaceholders) {
@@ -132,13 +132,18 @@ export default class CardGoodsView {
     this.#placeholdersHeight = newHeight;
   }
 
+  updatePlaceholdersGeometry() {
+    this.#setPlaceholderGeometry('width', `${this.#placeholdersWidth}`);
+    this.#setPlaceholderGeometry('height', `${this.#placeholdersHeight}`);
+  }
+
   /**
    * @param {string} sideName either width or height
    */
   #setPlaceholderGeometry(sideName, newValue) {
     const allPlaceholders = this.#divContainer.querySelectorAll('.placeholder');
-    allPlaceholders.forEach((placeeholder) => {
-      placeeholder.style[sideName] = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
+    allPlaceholders.forEach((placeholder) => {
+      placeholder.style[sideName] = /\d+$/.test(newValue) ? newValue + 'px' : newValue;
     });
   }
 
