@@ -9,7 +9,7 @@
 
 import CardGoodsModel from "../model/card-goods-model.mjs";
 import CardGoodsView from "../view/card-goods-view.mjs";
-import CardView from "./card-controller.mjs";
+import CardView from "../view/card-view.mjs";
 import CardWebcomp from '../card-webcomponent.mjs'
 
 /**
@@ -80,7 +80,10 @@ export default class CardGoodsController {
         }
       }
       const card = new CardWebcomp();
-      card.updateContent(json.bienes[i]);
+      card.updateContent({
+        domNode: json.bienes[i],
+        scoringObject: card.getScoringObject(),
+      });
       this.#view.insertContent(card);
     }
   }
