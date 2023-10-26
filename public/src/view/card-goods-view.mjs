@@ -93,9 +93,9 @@ export default class CardGoodsView {
 
   update() {
     this.#placeholdersContentArray.sort((a, b) => {
-      return a.scoringObject.getScore() - b.scoringObject.getScore()
+      return b.scoringObject.getScore() - a.scoringObject.getScore()
     });
-    for (let i = this.#amountOfPlaceholders - 1; i >= 0; i--) {
+    for (let i = 0; i < this.#amountOfPlaceholders; i++) {
       if (this.#placeholdersContentArray[i]) {
         this.pushToPlaceholder(this.#placeholdersContentArray[i].domNode);
       }
