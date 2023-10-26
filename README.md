@@ -6,7 +6,7 @@ Marcos Barrios, alu0101056944
 
 <code>Sass</code> learning repository to prepare for an evaluation practice session of the *Sistemas y Tecnología Web: Cliente* subject.
 
-![Webpage image](docs/webpage.PNG)
+![Webpage image 2](docs/webpage_2.PNG)
 
 ## Project structure
 
