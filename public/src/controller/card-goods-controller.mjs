@@ -57,11 +57,15 @@ export default class CardGoodsController {
   addWebcomponentChildren(children) {
     const childrenAssignedToSlots = children
         .filter((child) => child.slot && child.slot.includes('placeholder-slot-'));
-    childrenAssignedToSlots.forEach(child => this.#view.insertContent({
-          domNode: child,
-          scoringObject: child.getScoringObject(),
-          potato: child.potato,
-        }));
+    childrenAssignedToSlots.forEach(child => {
+          child.setAttribute('width', this.#view.getPlaceholdersWidth());
+          child.setAttribute('height', this.#view.getPlaceholdersHeight());
+          this.#view.insertContent({
+              domNode: child,
+              scoringObject: child.getScoringObject(),
+              potato: child.potato,
+            });
+        });
   }
 
   async requestAPIInfo() {
