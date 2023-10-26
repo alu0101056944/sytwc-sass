@@ -27,8 +27,8 @@ export default class ScoreController {
     this.#view = new ScoreView(parent);
   }
 
-  getModel() {
-    return this.#model;
+  getView() {
+    return this.#view;
   }
 
 }
