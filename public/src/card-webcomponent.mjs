@@ -27,8 +27,12 @@ export default class CardWebcomp extends HTMLElement {
     console.log('WebComponent Score created.');
   }
   
+  /**
+   * Temporarily hardwired.
+   * @todo Implement a score contract in card webcomponents.
+   */
   getScoringObject() {
-    return this.#controller.getView();
+    return this.querySelector('mb-score').getScoringObject();
   }
 
   connectedCallback() {

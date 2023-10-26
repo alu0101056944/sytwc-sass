@@ -27,8 +27,4 @@ export default class CardController {
     this.#view = new CardView(parent);
   }
 
-  getView() {
-    return this.#view;
-  }
-
 }

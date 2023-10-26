@@ -10,7 +10,8 @@
 export default class CardView {
 
   /** @private @constant */
-  #mainDiv = undefined;
+  #divContainer = undefined;
+  #divMain = undefined;
 
   /** @static */
   static acceptedKeys = ['nombre', 'antecedentes', 'tipo', 'localizacion'];
@@ -22,15 +23,16 @@ export default class CardView {
    * @param {object} parent DOM node
    */
   constructor(parent) {
-    this.#mainDiv = document.createElement('div');
-    this.#mainDiv.className = 'card';
-    this.#mainDiv.innerHTML = `
+    this.#divContainer = document.createElement('div');
+    this.#divContainer.className = 'card';
+    this.#divContainer.innerHTML = `
       <div class="card-main"></div>
       <div class="card-foot">
         <slot name="card-foot-space-1"></slot>
       </div>
     `;
-    this.parent.append(this.#mainDiv);
+    parent.append(this.#divContainer);
+    this.#divMain = this.#divContainer.querySelector('.card-main');
     const cssLinkerNode = document.createElement('link');
     cssLinkerNode.setAttribute('rel', 'stylesheet');
     cssLinkerNode.setAttribute('href', 'styles/components/card.css');
@@ -40,7 +42,7 @@ export default class CardView {
     parent.append(cssLinkerNode);
     CardView.acceptedKeys.forEach((e) => {
       this.#spanElements[e] = document.createElement('p');
-      parent.append(this.#spanElements[e]);
+      this.#divMain.append(this.#spanElements[e]);
       const PART_OF_METHOD_CALL = e[0].toUpperCase() + e.slice(1);
 
       // create setters on runtime
