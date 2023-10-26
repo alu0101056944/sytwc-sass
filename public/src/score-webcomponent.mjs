@@ -25,6 +25,10 @@ export default class ScoreWebcomp extends HTMLElement {
     this.length = 6;
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new ScoreController(this.#shadow);
+    this.potato = 3;
+    this.getScoringObject = () => {
+      return this.#controller.getView();
+    };
     console.log('WebComponent Score created.');
   }
 

@@ -7,12 +7,9 @@
 </head>
 <body>
   <template id="card-goods-template">
-    <div class="examples">
-      <div class="example">
-        <div class="card-main"></div>
-        <div class="card-foot">
-          <slot name="card-foot-space-1"></slot>
-        </div>
+    <div class="placeholders">
+      <div class="placeholder">
+        <slot name="placeholder-slot"></slot>
       </div>
     </div>
   </template>
@@ -56,12 +53,12 @@
       <div class="feature">
         <h5>Testimonios, clientes relevantes</h5>
         <mb-cardgoods cardwidth="150" cardheight="150" length="6">
-          <mb-score slot="card-foot-space-1"></mb-score>
-          <mb-score slot="card-foot-space-2"></mb-score>
-          <mb-score slot="card-foot-space-3"></mb-score>
-          <mb-score slot="card-foot-space-4"></mb-score>
-          <mb-score slot="card-foot-space-5"></mb-score>
-          <mb-score slot="card-foot-space-6"></mb-score>
+          <mb-score slot="placeholder-slot-1"></mb-score>
+          <mb-score slot="placeholder-slot-2"></mb-score>
+          <mb-score slot="placeholder-slot-3"></mb-score>
+          <mb-score slot="placeholder-slot-4"></mb-score>
+          <mb-score slot="placeholder-slot-5"></mb-score>
+          <mb-score slot="placeholder-slot-6"></mb-score>
         </mb-cardgoods>
       </div>
       <div class="garantydiv">

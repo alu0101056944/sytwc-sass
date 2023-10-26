@@ -27,4 +27,8 @@ export default class ScoreController {
     this.#view = new ScoreView(parent);
   }
 
+  getView() {
+    return this.#view;
+  }
+
 }

@@ -26,42 +26,59 @@ export default class CardGoodsController {
   constructor(parent) {
     this.#model = new CardGoodsModel();
     this.#view = new CardGoodsView(parent);
+    document.addEventListener('scoreIncrease', () => this.#view.update());
+    document.addEventListener('scoreDecrease', () => this.#view.update());
   }
 
   updateGeometry(sideName, newValue) {
     if (sideName === 'cardwidth') {
-      this.#view.updateCardWidth(newValue);
+      this.#view.setPlaceholdersWidth(newValue);
     } else if (sideName === 'cardheight') {
-      this.#view.updateCardHeight(newValue);
+      this.#view.setPlaceholdersHeight(newValue);
     }
   }
 
   setLength(newLength) {
     if (/\d+/.test(newLength)) {
       const numericValue = parseInt(newLength.match(/\d+/g)[0]);
-      this.#view.updateLength(numericValue);
+      this.#view.setAmountOfPlaceholders(numericValue);
     } else {
       throw new Error('newLength does not contain a number. CardGoods webcomp.');
     }
   }
 
-  async requestAPIInfo() {
-    const response = await fetch('assets/bienes.json');
-    const json = await response.json();
-    for (let i = 0; i < json.bienes.length; i++) {
-      for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
-        if (CardView.acceptedKeys.indexOf(key) === -1) {
-          delete json.bienes[i][key];
-        }
-        if (key === 'localizacion') {
-          json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
-              `, long: ${json.bienes[i][key].long}`;
-        } else if (key === 'tipo') {
-          json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
-              `, épica: ${json.bienes[i][key]['época']}`;
-        }
-      }
-    }
-    this.#view.updateCardContents(json);
+  /**
+   * The children of webcomponent that are inserted into a placeholder slot are
+   *  passed to the view for it to manage them.
+   * @param {object} children array of dom nodes
+   */
+  addWebcomponentChildren(children) {
+    const childrenAssignedToSlots = children
+        .filter((child) => child.slot && child.slot.includes('placeholder-slot-'));
+    childrenAssignedToSlots.forEach(child => this.#view.insertContent({
+          domNode: child,
+          scoringObject: child.getScoringObject(),
+          potato: child.potato,
+        }));
   }
+
+  // async requestAPIInfo() {
+  //   const response = await fetch('assets/bienes.json');
+  //   const json = await response.json();
+  //   for (let i = 0; i < json.bienes.length; i++) {
+  //     for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
+  //       if (CardView.acceptedKeys.indexOf(key) === -1) {
+  //         delete json.bienes[i][key];
+  //       }
+  //       if (key === 'localizacion') {
+  //         json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
+  //             `, long: ${json.bienes[i][key].long}`;
+  //       } else if (key === 'tipo') {
+  //         json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
+  //             `, épica: ${json.bienes[i][key]['época']}`;
+  //       }
+  //     }
+  //   }
+  //   this.#view.updateCardContents(json.bienes);
+  // }
 }

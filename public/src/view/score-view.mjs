@@ -37,7 +37,7 @@ export default class ScoreView {
     this.#likeButton.textContent = 'Like';
     this.#likeButton.addEventListener('click', function() {
       containerObject.setScore(containerObject.getScore() + 1);
-      dispatchEvent(new CustomEvent('likeButtonClick'));
+      document.dispatchEvent(new CustomEvent('scoreIncrease'));
     });
     parent.append(this.#likeButton);
     this.#dislikeButton = document.createElement('button');
@@ -45,7 +45,7 @@ export default class ScoreView {
     this.#dislikeButton.disabled = true;
     this.#dislikeButton.addEventListener('click', function() {
       containerObject.setScore(containerObject.getScore() - 1);
-      dispatchEvent(new CustomEvent('dislikeButtonClick'));
+      document.dispatchEvent(new CustomEvent('scoreDecrease'));
     });
     parent.append(this.#dislikeButton);
   }
