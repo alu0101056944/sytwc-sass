@@ -1,18 +1,18 @@
 /**
  * @author Marcos Barrios
- * @since 24_10_2023
- * @brief Component for showing a user score
- * @module ScoreWebcomp
+ * @since 26_10_2023
+ * @brief Component for card representation with a bunch of informatio.
+ * @module CardWebcomp
  */
 
 'use strict';
 
-import ScoreController from "./controller/score-controller.mjs";
+import CardController from "./controller/card-controller.mjs";
 
 /**
  * Component for showing a user score
  */
-export default class ScoreWebcomp extends HTMLElement {
+export default class CardWebcomp extends HTMLElement {
   /** @static */
   static observedAttributes = [];
 
@@ -22,12 +22,11 @@ export default class ScoreWebcomp extends HTMLElement {
 
   constructor() {
     super();
-    this.length = 6;
     this.#shadow = this.attachShadow({ mode: 'closed' });
-    this.#controller = new ScoreController(this.#shadow);
+    this.#controller = new CardController(this.#shadow);
     console.log('WebComponent Score created.');
   }
-
+  
   getScoringObject() {
     return this.#controller.getView();
   }

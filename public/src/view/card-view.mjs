@@ -8,6 +8,10 @@
 'use strict';
 
 export default class CardView {
+
+  /** @private @constant */
+  #mainDiv = undefined;
+
   /** @static */
   static acceptedKeys = ['nombre', 'antecedentes', 'tipo', 'localizacion'];
 
@@ -18,6 +22,22 @@ export default class CardView {
    * @param {object} parent DOM node
    */
   constructor(parent) {
+    this.#mainDiv = document.createElement('div');
+    this.#mainDiv.className = 'card';
+    this.#mainDiv.innerHTML = `
+      <div class="card-main"></div>
+      <div class="card-foot">
+        <slot name="card-foot-space-1"></slot>
+      </div>
+    `;
+    this.parent.append(this.#mainDiv);
+    const cssLinkerNode = document.createElement('link');
+    cssLinkerNode.setAttribute('rel', 'stylesheet');
+    cssLinkerNode.setAttribute('href', 'styles/components/card.css');
+    cssLinkerNode.addEventListener('load', () => {
+      console.log('Card css style loaded.');
+    });
+    parent.append(cssLinkerNode);
     CardView.acceptedKeys.forEach((e) => {
       this.#spanElements[e] = document.createElement('p');
       parent.append(this.#spanElements[e]);

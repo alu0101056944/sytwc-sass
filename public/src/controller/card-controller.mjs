@@ -1,19 +1,19 @@
 /**
  * @author Marcos Barrios
- * @since 24_10_2023
- * @desc Control both model and view of score webcomponent
- * @module ScoreController
+ * @since 26_10_2023
+ * @desc Control both model and view of card webcomponent
+ * @module CardController
  */
 
 'use strict';
 
-import ScoreModel from "../model/score-model.mjs";
-import ScoreView from "../view/score-view.mjs";
+import CardModel from "../model/card-model.mjs";
+import CardView from "../view/card-view.mjs";
 
 /**
  * Control both model and view of card webcomponent
  */
-export default class ScoreController {
+export default class CardController {
 
   /** @private @constant */
   #model = undefined;
@@ -23,8 +23,8 @@ export default class ScoreController {
    * @param {object} parent where the view will get appended to
    */
   constructor(parent) {
-    this.#model = new ScoreModel();
-    this.#view = new ScoreView(parent);
+    this.#model = new CardModel();
+    this.#view = new CardView(parent);
   }
 
   getView() {
