@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,MAAO;EACL,gBAAgB,EAAE,MAAM",
+"mappings": "AACA,IAAK;EACH,OAAO,EAAE,eAAe;EACxB,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,KAAK;;AAGd,MAAO;EACL,OAAO,EAAE,eAAe;EACxB,MAAM,EAAE,eAAe",
 "sources": ["score.scss"],
 "names": [],
 "file": "score.css"
