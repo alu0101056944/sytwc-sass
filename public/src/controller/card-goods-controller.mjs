@@ -10,6 +10,8 @@
 import CardGoodsModel from "../model/card-goods-model.mjs";
 import CardGoodsView from "../view/card-goods-view.mjs";
 import CardView from "../view/card-view.mjs";
+import CardWebcomp from '../card-webcomponent.mjs'
+import ScoreWebcomp from "../score-webcomponent.mjs";
 
 /**
  * Make the REST API requests to fill the data the viewer needs.
@@ -26,23 +28,44 @@ export default class CardGoodsController {
   constructor(parent) {
     this.#model = new CardGoodsModel();
     this.#view = new CardGoodsView(parent);
+    document.addEventListener('scoreIncrease', () => this.#view.update());
+    document.addEventListener('scoreDecrease', () => this.#view.update());
   }
 
   updateGeometry(sideName, newValue) {
     if (sideName === 'cardwidth') {
-      this.#view.updateCardWidth(newValue);
+      this.#view.setPlaceholdersWidth(newValue);
     } else if (sideName === 'cardheight') {
-      this.#view.updateCardHeight(newValue);
+      this.#view.setPlaceholdersHeight(newValue);
     }
   }
 
   setLength(newLength) {
     if (/\d+/.test(newLength)) {
       const numericValue = parseInt(newLength.match(/\d+/g)[0]);
-      this.#view.updateLength(numericValue);
+      this.#view.setAmountOfPlaceholders(numericValue);
     } else {
       throw new Error('newLength does not contain a number. CardGoods webcomp.');
     }
+  }
+
+  /**
+   * The children of webcomponent that are inserted into a placeholder slot are
+   *  passed to the view for it to manage them.
+   * @param {object} children array of dom nodes
+   */
+  addWebcomponentChildren(children) {
+    const childrenAssignedToSlots = children
+        .filter((child) => child.slot && child.slot.includes('placeholder-slot-'));
+    childrenAssignedToSlots.forEach(child => {
+          child.setAttribute('width', this.#view.getPlaceholdersWidth());
+          child.setAttribute('height', this.#view.getPlaceholdersHeight());
+          this.#view.insertContent({
+              domNode: child,
+              scoringObject: child.getScoringObject(),
+              potato: child.potato,
+            });
+        });
   }
 
   async requestAPIInfo() {
@@ -61,7 +84,24 @@ export default class CardGoodsController {
               `, épica: ${json.bienes[i][key]['época']}`;
         }
       }
+      const card = new CardWebcomp();
+      card.setAttribute('width', this.#view.getPlaceholdersWidth());
+      card.setAttribute('height', this.#view.getPlaceholdersHeight());
+      const score = new ScoreWebcomp();
+      card.insertIntoFoot(score);
+      card.updateContent(json.bienes[i]);
+      this.#view.insertContent({
+        domNode: card,
+        scoringObject: score.getScoringObject(),
+      });
     }
-    this.#view.updateCardContents(json);
+  }
+
+  getPlaceholdersHeight() {
+    return this.#view.getPlaceholdersHeight();
+  }
+
+  getPlaceholderWidth() {
+    return this.#view.getPlaceholdersWidth();
   }
 }

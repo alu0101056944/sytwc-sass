@@ -28,6 +28,10 @@ export default class ScoreWebcomp extends HTMLElement {
     console.log('WebComponent Score created.');
   }
 
+  getScoringObject() {
+    return this.#controller.getView();
+  }
+
   connectedCallback() {
     console.log('WebComponent Score connected.');
   }

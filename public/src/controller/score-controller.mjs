@@ -1,7 +1,7 @@
 /**
  * @author Marcos Barrios
  * @since 24_10_2023
- * @desc Persistency of score.
+ * @desc Control both model and view of score webcomponent
  * @module ScoreController
  */
 
@@ -11,7 +11,7 @@ import ScoreModel from "../model/score-model.mjs";
 import ScoreView from "../view/score-view.mjs";
 
 /**
- * Persistency of score.
+ * Control both model and view of card webcomponent
  */
 export default class ScoreController {
 
@@ -25,6 +25,10 @@ export default class ScoreController {
   constructor(parent) {
     this.#model = new ScoreModel();
     this.#view = new ScoreView(parent);
+  }
+
+  getView() {
+    return this.#view;
   }
 
 }

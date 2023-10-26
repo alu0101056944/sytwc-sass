@@ -18,6 +18,7 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
   /** @private @constant */
   #shadow = undefined;
+  #childrenApartOfShadow = undefined;
   #controller = undefined;
 
   constructor() {
@@ -30,7 +31,13 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
-    this.#controller.requestAPIInfo();
+
+    // shadow dom node are never iterated so just do:
+    this.#childrenApartOfShadow = Array.from(this.children);
+    document.addEventListener('DOMContentLoaded', () => {
+      this.#controller.requestAPIInfo();
+      this.#controller.addWebcomponentChildren(this.#childrenApartOfShadow)
+    });
   }
 
   disconnectedCallback() {
@@ -40,10 +47,17 @@ export default class CardGoodsWebcomp extends HTMLElement {
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('Changed attribute ' + attributeName);
     if (attributeName === 'cardwidth' || attributeName === 'cardheight') {
-      this.#controller.setLength(newValue);
       this.#controller.updateGeometry(attributeName, newValue);
     } else if (attributeName === 'length') {
       this.#controller.setLength(newValue);
     }
+  }
+
+  getPlaceholdersHeight() {
+    return this.#controller.getPlaceholdersHeight();
+  }
+
+  getPlaceholderWidth() {
+    return this.#controller.getPlaceholdersWidth();
   }
 }

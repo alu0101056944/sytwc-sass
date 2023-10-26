@@ -35,18 +35,26 @@ export default class ScoreView {
     parent.append(this.#scoreNode);
     this.#likeButton = document.createElement('button');
     this.#likeButton.textContent = 'Like';
-    this.#likeButton.addEventListener('click', function() {
+    this.#likeButton.addEventListener('click', (function() {
       containerObject.setScore(containerObject.getScore() + 1);
-      dispatchEvent(new CustomEvent('likeButtonClick'));
-    });
+      document.dispatchEvent(new CustomEvent('scoreIncrease'));
+      this.#scoreNode.classList.add('.overtime-highlight');
+      setTimeout(() => {
+        this.#scoreNode.classList.remove('.overtime-highlight');
+      }, 2000);
+    }).bind(this));
     parent.append(this.#likeButton);
     this.#dislikeButton = document.createElement('button');
     this.#dislikeButton.textContent = 'Dislike';
     this.#dislikeButton.disabled = true;
-    this.#dislikeButton.addEventListener('click', function() {
+    this.#dislikeButton.addEventListener('click', (function() {
       containerObject.setScore(containerObject.getScore() - 1);
-      dispatchEvent(new CustomEvent('dislikeButtonClick'));
-    });
+      document.dispatchEvent(new CustomEvent('scoreDecrease'));
+      this.#scoreNode.classList.add('.overtime-negative');
+      setTimeout(() => {
+        this.#scoreNode.classList.remove('.overtime-negative');
+      }, 2000);
+    }).bind(this));
     parent.append(this.#dislikeButton);
   }
 
