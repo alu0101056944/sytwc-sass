@@ -32,7 +32,12 @@ export default class CardWebcomp extends HTMLElement {
    * @todo Implement a score contract in card webcomponents.
    */
   getScoringObject() {
-    return this.querySelector('mb-score').getScoringObject();
+    const scoreComponent = this.querySelector('mb-score');
+    return scoreComponent.getScoringObject();
+  }
+
+  insertIntoFoot(domNode) {
+    this.#controller.insertIntoFoot(domNode);
   }
 
   updateContent(bienInfo) {

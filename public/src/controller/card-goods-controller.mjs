@@ -11,6 +11,7 @@ import CardGoodsModel from "../model/card-goods-model.mjs";
 import CardGoodsView from "../view/card-goods-view.mjs";
 import CardView from "../view/card-view.mjs";
 import CardWebcomp from '../card-webcomponent.mjs'
+import ScoreWebcomp from "../score-webcomponent.mjs";
 
 /**
  * Make the REST API requests to fill the data the viewer needs.
@@ -80,11 +81,13 @@ export default class CardGoodsController {
         }
       }
       const card = new CardWebcomp();
-      card.updateContent({
-        domNode: json.bienes[i],
-        scoringObject: card.getScoringObject(),
+      const score = new ScoreWebcomp();
+      card.insertIntoFoot(score);
+      card.updateContent(json.bienes[i]);
+      this.#view.insertContent({
+        domNode: card,
+        scoringObject: score.getScoringObject(),
       });
-      this.#view.insertContent(card);
     }
   }
 }

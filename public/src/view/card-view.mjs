@@ -12,6 +12,7 @@ export default class CardView {
   /** @private @constant */
   #divContainer = undefined;
   #divMain = undefined;
+  #divFoot = undefined;
 
   /** @static */
   static acceptedKeys = ['nombre', 'antecedentes', 'tipo', 'localizacion'];
@@ -33,6 +34,7 @@ export default class CardView {
     `;
     parent.append(this.#divContainer);
     this.#divMain = this.#divContainer.querySelector('.card-main');
+    this.#divFoot = this.#divContainer.querySelector('.card-foot');
     const cssLinkerNode = document.createElement('link');
     cssLinkerNode.setAttribute('rel', 'stylesheet');
     cssLinkerNode.setAttribute('href', 'styles/components/card.css');
@@ -66,5 +68,9 @@ export default class CardView {
     for (const spanName of Object.getOwnPropertyNames(this.#spanElements)) {
       this.#spanElements[spanName].textContent = '';
     }
+  }
+
+  insertIntoFoot(domNode) {
+    this.#divFoot.append(domNode);
   }
 }

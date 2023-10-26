@@ -38,4 +38,8 @@ export default class CardController {
     });
   }
 
+  insertIntoFoot(domNode) {
+    this.#view.insertIntoFoot(domNode);
+  }
+
 }
