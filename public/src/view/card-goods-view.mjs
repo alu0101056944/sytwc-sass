@@ -67,16 +67,13 @@ export default class CardGoodsView {
    */
   pushToPlaceholder(domElement) {
     domElement.removeAttribute('slot');
-    for (let i = this.#amountOfPlaceholders - 1; i > 0; i--) {
-      for (let child of this.#placeholders[i].children) {
-        child.remove();
-      }
-      for (let child of this.#placeholders[i - 1].children) {
-        this.#placeholders[i].append(child.cloneNode(true));
-      }
-    }
-    for (let child of this.#placeholders[0].children) {
+    for (let child of this.#placeholders[this.#amountOfPlaceholders - 1].children) {
       child.remove();
+    }
+    for (let i = this.#amountOfPlaceholders - 1; i > 0; i--) {
+      for (let child of this.#placeholders[i - 1].children) {
+        this.#placeholders[i].append(child);
+      }
     }
     this.#placeholders[0].append(domElement);
   }
@@ -89,12 +86,13 @@ export default class CardGoodsView {
   insertContent(infoObject) {
     this.#placeholdersContentArray.push({
       domNode: infoObject.domNode,
-      scoringObject: infoObject.scoringObject ?? { getScore: () => 0 },
+      scoringObject: infoObject.scoringObject ?? { getScore: () => Math.floor(Math.random() * 10) },
     });
     this.update();
   }
 
   update() {
+    console.log('update called');
     this.#placeholdersContentArray.sort((a, b) => {
       return a.scoringObject.getScore() - b.scoringObject.getScore()
     });
