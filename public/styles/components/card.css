@@ -2,9 +2,11 @@
   width: 100%;
   height: 100%; }
   .card .card-main {
+    background-color: red;
     width: 100%;
     height: 80%; }
   .card .card-foot {
+    background-color: blue;
     width: 100%;
     height: 20%; }
 
