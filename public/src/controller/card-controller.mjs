@@ -27,4 +27,15 @@ export default class CardController {
     this.#view = new CardView(parent);
   }
 
+  getView() {
+    return this.#view;
+  }
+
+  updateContent(bienInfo) {
+    CardView.acceptedKeys.forEach((key) => {
+      const PART_OF_METHOD_CALL = key[0].toUpperCase() + key.slice(1);
+      this.#view[`setTextOf${PART_OF_METHOD_CALL}`](bienInfo[key]);
+    });
+  }
+
 }

@@ -31,11 +31,11 @@ export default class CardGoodsWebcomp extends HTMLElement {
 
   connectedCallback() {
     console.log('WebComponent CardGoods connected.');
-    // this.#controller.requestAPIInfo();
 
     // shadow dom node are never iterated so just do:
     this.#childrenApartOfShadow = Array.from(this.children);
     document.addEventListener('DOMContentLoaded', () => {
+      this.#controller.requestAPIInfo();
       this.#controller.addWebcomponentChildren(this.#childrenApartOfShadow)
     });
   }

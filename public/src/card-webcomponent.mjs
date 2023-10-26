@@ -24,7 +24,7 @@ export default class CardWebcomp extends HTMLElement {
     super();
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new CardController(this.#shadow);
-    console.log('WebComponent Score created.');
+    console.log('WebComponent Card created.');
   }
   
   /**
@@ -35,12 +35,16 @@ export default class CardWebcomp extends HTMLElement {
     return this.querySelector('mb-score').getScoringObject();
   }
 
+  updateContent(bienInfo) {
+    this.#controller.updateContent(bienInfo);
+  }
+
   connectedCallback() {
-    console.log('WebComponent Score connected.');
+    console.log('WebComponent Card connected.');
   }
 
   disconnectedCallback() {
-    console.log('WebComponent Score disconnected.');
+    console.log('WebComponent Card disconnected.');
   }
 
   attributeChangedCallback(attributeName, oldValue, newValue) {

@@ -84,7 +84,7 @@ export default class CardGoodsView {
    *  so that it can get sorted by it.
    */
   insertContent(infoObject) {
-    this.#placeholdersContentArray.push({
+    this.#placeholdersContentArray.unshift({
       domNode: infoObject.domNode,
       scoringObject: infoObject.scoringObject ?? { getScore: () => Math.floor(Math.random() * 10) },
     });
